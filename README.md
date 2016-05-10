@@ -4,7 +4,7 @@
 - eddystone-beacon
 - node.js/express/angular.js with cassandra-driver
 - Cassandra
-- 
+
 ##Building OpenALPR on Raspberry Pi
 
 First, you have to build OpenCV. Follow the instructions here: http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html
