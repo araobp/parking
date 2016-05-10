@@ -1,4 +1,4 @@
-## Technologies
+##Software components used in this project
 - motion
 - OpenALPR
 - eddystone-beacon
