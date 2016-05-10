@@ -4,7 +4,7 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 
 ##Architecture
 
-![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=960&h=720)
+![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
 ##Software components used in this project
 - motion
