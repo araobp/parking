@@ -1,0 +1,2 @@
+INSERT INTO lpn.lpn ( license_number , park_time , floor_id ) VALUES (3453, '2016-05-10 12:31:22', '3rd') USING TTL 20;
+
