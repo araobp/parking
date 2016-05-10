@@ -17,7 +17,11 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 
 First, you have to build OpenCV. Follow the instructions here: http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html
 
+It took one hour to complete the build processes.
+
 Then, follow the instructions on this page: https://github.com/openalpr/openalpr/wiki/Compilation-instructions-%28Ubuntu-Linux%29
+
+It took some ten minutes.
 
 Check if ALPR works on your Raspberry Pi:
 ```
@@ -44,3 +48,6 @@ plate0: 8 results
     - 7B6PQ      confidence: 64.627
     - 7B6PD      confidence: 63.7444
     ```
+
+It took something like 10 seconds to recognize a number, so it is not plactical -- you should run ALPR on a normal PC. not on Raspberry Pi. Anyway, this project is just for fun.
+
