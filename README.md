@@ -14,11 +14,11 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
 ##Software components used in this project
-- motion
-- OpenALPR
-- eddystone-beacon
 - node.js/express/angular.js with cassandra-driver
-- Cassandra
+- ![motion](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome)
+- ![OpenALPR](https://github.com/openalpr/openalpr)
+- ![node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
+- ![Cassandra](http://cassandra.apache.org/)
 
 ##Building OpenALPR on Raspberry Pi
 
