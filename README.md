@@ -15,10 +15,10 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 
 ##Software components used in this project
 - node.js/express/angular.js with cassandra-driver
-- ![motion](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome)
-- ![OpenALPR](https://github.com/openalpr/openalpr)
-- ![node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
-- ![Cassandra](http://cassandra.apache.org/)
+- [motion](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome)
+- [OpenALPR](https://github.com/openalpr/openalpr)
+- [node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
+- [Cassandra](http://cassandra.apache.org)
 
 ##Building OpenALPR on Raspberry Pi
 
@@ -60,5 +60,5 @@ It took something like 10 seconds to recognize a number, so it is not plactical 
 
 ##Cassandra setup
 
-![Cassandra setup](./doc/cassandra.md)
+[Cassandra setup](./doc/cassandra.md)
 
