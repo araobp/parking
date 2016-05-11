@@ -57,3 +57,8 @@ plate0: 8 results
 ```
 
 It took something like 10 seconds to recognize a number, so it is not plactical -- you should run ALPR on a normal PC. not on Raspberry Pi. Anyway, this project is just for fun.
+
+##Cassandra setup
+
+![Cassandra setup](./doc/cassandra.md)
+
