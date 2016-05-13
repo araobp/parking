@@ -1,0 +1,6 @@
+config:
+# db: mongodb
+  db: cassandra
+  dbExpires: 3600 
+  cars: 10
+

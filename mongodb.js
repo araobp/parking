@@ -1,4 +1,7 @@
+var config = require('config')
 var mongoose = require('mongoose');
+
+var expires = config.config.dbExpires
 
 var LpnSchema = new mongoose.Schema({
   license_number: Number, 
@@ -6,7 +9,7 @@ var LpnSchema = new mongoose.Schema({
   floor_id: String
 });
 
-LpnSchema.index({ createdAt: 1 }, { expireAfterSeconds: 10 });
+LpnSchema.index({ "createdAt": 1 }, { expireAfterSeconds: expires });
 
 mongoose.model('Lpn', LpnSchema);
 

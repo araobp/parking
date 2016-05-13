@@ -1,7 +1,8 @@
 <html ng-app="app">
   <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Car Search</title>
+    <link rel="stylesheet" type="text/css" href="default.css">
   </head>
   <body>
   <div ng-controller="controller">
@@ -23,7 +24,11 @@
       $http.get('/search?num=' + num).
         success(function(data) {
           console.log(data);
-          $scope.message = 'Your car is on the ' + data.floor_id;
+          var message = 'Not Found';
+          if (data.floor_id != '') {
+            message = 'Your car is on the ' + data.floor_id + ' floor.';
+          };
+          $scope.message = message;
         });
       };
     });

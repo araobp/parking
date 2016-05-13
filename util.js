@@ -1,5 +1,9 @@
 var os = require('os');
 
+exports.randInt = function(lowest, highest) {
+  return Math.floor(Math.random() * (highest - lowest) + lowest);
+}
+
 exports.getLocalAddress = function (ifname) {
     var interfaces = os.networkInterfaces();
     var addresses = [];
@@ -18,4 +22,4 @@ exports.getLocalAddress = function (ifname) {
         });
     }
     return addresses;
-};
+}
