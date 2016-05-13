@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-var cassandra = require('./cassandra.js');
+
+/*** You use either Cassandra or MongoDB ***/
+//var db = require('./cassandra.js');
+var db = require('./mongodb.js');
 
 app.get('/', function(req, res) {
   console.log('GET /')
@@ -22,10 +25,9 @@ app.get('/search', function(req, res) {
   var num = req.query.num;
   console.log(num);
   var record = 'Not Found';
-  cassandra.searchCar(num, function(record) {
+  db.searchCar(num, function(record) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write(JSON.stringify(record));
-    //res.write(record);
     res.end();
   });
 });

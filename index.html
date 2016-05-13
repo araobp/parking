@@ -9,7 +9,7 @@
   <input ng-model="num">
   <button ng-click="search(num)">Search</button>
   <br>
-  <p>{{someText.message}}</p>
+  <p ng-bind="message"></p>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 
@@ -18,15 +18,12 @@
 
     appModule.controller("controller", function($scope, $http) {
     var someText = {};
-    someText.message = $scope.num;
-    $scope.someText = someText;
     $scope.search = function(num) {
       console.log(num);
       $http.get('/search?num=' + num).
         success(function(data) {
           console.log(data);
-          someText.message = 'Your car is on the ' + data.floor_id;
-          $scope.someText = someText;
+          $scope.message = 'Your car is on the ' + data.floor_id;
         });
       };
     });
