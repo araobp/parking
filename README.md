@@ -1,6 +1,6 @@
 #Where is my car?
 
-This project is just to study IOT with webcam on Raspberry Pi 3.
+![PI-ALPR](./doc/PI-ALPR.png)
 
 ##Project goal
 
