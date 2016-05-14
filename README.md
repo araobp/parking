@@ -13,7 +13,7 @@
 - [node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
 - [Cassandra](http://cassandra.apache.org)
 
-##Do I need ???
+##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
 No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being.
@@ -23,6 +23,9 @@ No, I don't. I prefer Cassandra over MongoDB.
 
 ####Do I need AWS DynamoDB and Lambda?
 No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandra" is much simplar and cheaper than those of AWS. I can even create a cluster of Cassandra with multiple Raspberry Pi 3. In near future, I will try that.
+
+####Do I need an IOT framework/platform?
+No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform.
 
 ##Building OpenALPR on Raspberry Pi
 
