@@ -1,4 +1,24 @@
-###Schema
+#Cassandra setup
+
+###Java8 installation
+
+    Download Java8 from https://java.com/en/download/
+    Set JAVA_HOME and PATH environment variables.
+
+###Cassandra installation
+
+Download Cassandra and start it:
+
+$ wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/cassandra/3.4/apache-cassandra-3.4-bin.tar.gz 
+$ tar zxvf http://ftp.meisei-u.ac.jp/mirror/apache/dist/cassandra/3.4/apache-cassandra-3.4-bin.tar.gz
+$ cd apache-cassandra-3.4/bin
+$ ./cassandra
+
+Connect cqlsh to Cassandra:
+
+$ ./cqlsh
+
+###Schema setup
 ```
 CREATE TABLE lpn.lpn (
     license_number int,
@@ -13,7 +33,7 @@ CREATE TABLE lpn.lpn (
 INSERT INTO lpn.lpn ( license_number , park_time , floor_id ) VALUES (3453, '2016-05-10 12:31:22', '3rd') USING TTL 20;
 ```
 
-###cqlsh
+###Using cqlsh
 ```
 pi@raspberrypi:~/apache-cassandra-3.4/bin $ ./cqlsh
 Connected to Test Cluster at 127.0.0.1:9042.
