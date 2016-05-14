@@ -80,7 +80,9 @@ app.post(  ...
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
-No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being.
+No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being. 
+
+Note that MQTT server can be SPOF.
 
 ####Do I need MongoDB?
 No, I don't. I prefer Cassandra over MongoDB.
