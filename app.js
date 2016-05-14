@@ -2,6 +2,7 @@ var config = require('config');
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 /*** You use either Cassandra or MongoDB ***/
 var nosql = config.config.db;
@@ -31,6 +32,17 @@ app.get('/search', function(req, res) {
     res.write(JSON.stringify(record));
     res.end();
   });
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post('/push', function(req, res) {
+  console.log('POST /push');
+  console.log(req.body);
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('OK');
+  res.end();
 });
 
 app.listen(80, function() {
