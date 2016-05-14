@@ -13,6 +13,17 @@
 - [node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
 - [Cassandra](http://cassandra.apache.org)
 
+##Do I need ???
+
+####Do I need MQTT?
+No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being.
+
+####Do I need MongoDB?
+No, I don't. I prefer Cassandra over MongoDB.
+
+####Do I need AWS DynamoDB and Lambda?
+No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandra" is much simplar and cheaper than those of AWS. I can even create a cluster of Cassandra with multiple Raspberry Pi 3. In near future, I will try that.
+
 ##Building OpenALPR on Raspberry Pi
 
 First, you have to build OpenCV. Follow the instructions here: http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html
