@@ -1,5 +1,7 @@
 #Cassandra setup
 
+Cassandra have been running on my Raspberry Pi 3.
+
 ###Java8 installation
 
     Download Java8 from https://java.com/en/download/
