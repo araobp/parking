@@ -64,6 +64,22 @@ plate0: 8 results
 
 It took something like 10 seconds to recognize a number, so it is not plactical -- you should run ALPR on a normal PC. not on Raspberry Pi. Anyway, this project is just for fun.
 
+##node.js/express
+
+You must install a middleware 'body-parser' for express POST operations:
+```
+$ sudo npm -g install body-parser
+```
+
+```
+var bodyParser = require('body-parser');
+
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded() );
+
+app.post(  ...
+```
+
 ##Cassandra setup
 
 [Cassandra setup](./doc/cassandra.md)
