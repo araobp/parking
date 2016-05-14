@@ -2,13 +2,6 @@
 
 ![PI-ALPR](./doc/PI-ALPR.png)
 
-##Project goal
-
-- Develop an IOT use case using Beacon(Eddystone) and webcam.
-- Get used to USB Webcam manipulation.
-- Learn node.js programming with MEAN stack (this project does not use MongoDB but Cassandra for time-series data).
-- Learn HTML5(HTML/CSS/JS) programming for smart phones.
-
 ##Architecture
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
