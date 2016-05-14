@@ -15,8 +15,8 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 
 ##Software components used in this project
 - node.js/express/angular.js with cassandra-driver
-- [motion](http://www.lavrsen.dk/foswiki/bin/view/Motion/WebHome)
 - [OpenALPR](https://github.com/openalpr/openalpr)
+- [beanstalkd](http://kr.github.io/beanstalkd/)
 - [node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
 - [Cassandra](http://cassandra.apache.org)
 
