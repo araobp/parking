@@ -24,6 +24,12 @@ This project is just to study IOT with webcam on Raspberry Pi 3.
 
 First, you have to build OpenCV. Follow the instructions here: http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html
 
+Don't forget to install libv4l-dev before cmake:
+```
+$ sudo apt-get install libv4l-dev
+```
+And add this option to cmake: -DWITH_LIBV4L=ON
+
 It took one hour to complete the build processes.
 
 Then, follow the instructions on this page: https://github.com/openalpr/openalpr/wiki/Compilation-instructions-%28Ubuntu-Linux%29
