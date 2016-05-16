@@ -3,6 +3,8 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var db = require('./cassandra.js');
+require('./beacon.js');
 
 /*** You use either Cassandra or MongoDB ***/
 var nosql = config.config.db;
@@ -17,6 +19,7 @@ switch (nosql) {
 };
 
 app.use(express.static('www'));
+app.use(express.static('angularjs'));
 
 app.get('/search', function(req, res) {
   console.log('GET /search')
@@ -39,7 +42,19 @@ app.use(bodyParser.json());
 
 app.post('/push', function(req, res) {
   console.log('POST /push');
-  console.log(req.body);
+  //console.log(req.body);
+  //console.log('AAA--');
+  var result = req.body.results[0];
+  var plate = result.plate;
+  var confidence = result.confidence;
+  var processing_time_ms = result.processing_time_ms;
+  var site_id = req.body.site_id;
+  //console.log('BBB--');
+  console.log(plate);
+  console.log(confidence);
+  console.log(site_id);
+  var now = new Date();
+  db.save(plate, now, site_id + ' th');
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('OK');
   res.end();
