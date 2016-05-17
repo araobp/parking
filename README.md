@@ -78,6 +78,16 @@ app.post(  ...
 
 [Cassandra setup](./doc/cassandra.md)
 
+##OpenALPR training for Japanese car licence plates
+
+Take pictures of Japanese license plates, then use the following utilites to train OpenALPR:
+
+- https://github.com/openalpr/train-ocr
+- https://github.com/openalpr/train-detector
+
+However, for the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
+https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
+
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
