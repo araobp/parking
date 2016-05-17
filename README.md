@@ -78,6 +78,8 @@ app.post(  ...
 
 [Cassandra setup](./doc/cassandra.md)
 
+Cassandra seems to use a number of threads (thus use multiple CPU cores), so it consumes a lot of electric power and the USB video cam loose power from an USB port of Rapsberry Pi. You need to use a powered USB hub.
+
 ##OpenALPR training for Japanese car licence plates
 
 Take pictures of Japanese license plates, then use the following utilites to train OpenALPR:
