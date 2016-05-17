@@ -78,17 +78,15 @@ app.post(  ...
 
 [Cassandra setup](./doc/cassandra.md)
 
-Cassandra seems to use a number of threads (thus use multiple CPU cores), so it consumes a lot of electric power and the USB video cam loose power from an USB port of Rapsberry Pi. You need to use a powered USB hub.
-
 ##OpenALPR training for Japanese car licence plates
 
-Take pictures of Japanese license plates, then use the following utilites to train OpenALPR:
+In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
+https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
 
+To get most out of OpenALPR, you must train it. Take pictures of Japanese license plates, then use the following utilites to train it:
 - https://github.com/openalpr/train-ocr
 - https://github.com/openalpr/train-detector
 
-However, for the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
-https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
 
 ##Do I need ??? Time for reality check!
 
