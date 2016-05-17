@@ -1,6 +1,8 @@
 #Where is my car?
 
-![travi_alpr](./doc/travi_alpr.jpg)
+![travi](./doc/travi.png)
+
+![travi-alpr](./doc/PI-ALPR.png)
 
 ##Architecture
 
