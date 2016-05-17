@@ -98,10 +98,12 @@ AngularJS-based page: [index.html](./www/index.html)
 
 ##Emitting URL of the web page from your Raspberry Pi
 
-Incude the following in your Java script:
+Include the following in your Java script:
 ```
-require('[./beacon.js](./beacon.js)')
+require('./beacon.js')
 ```
+
+The 'beacon.js' script is [here](./beacon.js).
 
 ##OpenALPR training for Japanese car licence plates
 
