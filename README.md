@@ -2,8 +2,6 @@
 
 ![travi_alpr](./doc/travi_alpr.jpg)
 
-![PI-ALPR](./doc/PI-ALPR.png)
-
 ##Architecture
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
