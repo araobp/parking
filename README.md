@@ -92,6 +92,10 @@ app.post(  ...
 
 [Cassandra setup](./doc/cassandra.md)
 
+##Web page for searching your car
+
+AngularJS-based page: [index.html](./www/index.html)
+
 ##OpenALPR training for Japanese car licence plates
 
 In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
