@@ -96,6 +96,13 @@ app.post(  ...
 
 AngularJS-based page: [index.html](./www/index.html)
 
+##Emitting URL of the web page from your Raspberry Pi
+
+Incude the following in your Java script:
+```
+require('[./beacon.js](./beacon.js)')
+```
+
 ##OpenALPR training for Japanese car licence plates
 
 In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
