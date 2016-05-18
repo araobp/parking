@@ -118,7 +118,7 @@ To get most out of OpenALPR, you must train it. Take pictures of Japanese licens
 
 I need to buy a powered USB 2.0 hub...
 
-- My USB video cam stop working just after I have started Cassandra.
+- My USB video cam stops working just after I have started Cassandra. I disabled wlan0, but it does not solve the problem.
 - My powered USB 3.0 hub does not work with Raspberry Pi. See this page: https://www.raspberrypi.org/documentation/hardware/raspberrypi/usb/README.md
 
 ##Do I need ??? Time for reality check!
