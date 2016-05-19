@@ -2,7 +2,6 @@
 
 This is my second IoT project.
 
-![travi](./doc/travi.png)
 ![travi-alpr](./doc/PI-ALPR.png)
 
 ##Examples of multistory parking garages in Japan
