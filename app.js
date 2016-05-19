@@ -54,7 +54,7 @@ app.post('/push', function(req, res) {
   console.log(confidence);
   console.log(site_id);
   var now = new Date();
-  db.save(plate, now, site_id + ' th');
+  db.save(plate, now, site_id);
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('OK');
   res.end();

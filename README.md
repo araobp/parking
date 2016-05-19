@@ -1,23 +1,6 @@
 #Where is my car?
 
-This is my second IoT project.
-
-What will happen if you don't remember where you parked your car in a multi-story parking garage?
-
-In that case, this small IOT system provides a search engine to find your car.
-
-![travi-alpr](./doc/PI-ALPR.png)
-
-##Examples of multistory parking garages in Japan
-
-- Northport Mall, Yokohama
-https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656
-
-- Sogo, Kashiwa
-https://www.google.co.jp/maps/@35.8644843,139.9731393,3a,75y,144.06h,112.16t/data=!3m6!1e1!3m4!1sHc9UH1NphEztWjDAM0G-Bg!2e0!7i13312!8i6656
-
-- AEON mall, Makuhari
-https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656
+![PI-ALPR](./doc/PI-ALPR.png)
 
 ##Architecture
 
@@ -93,45 +76,6 @@ app.post(  ...
 ##Cassandra setup
 
 [Cassandra setup](./doc/cassandra.md)
-
-##Web page for searching your car
-
-AngularJS-based page: [index.html](./www/index.html)
-
-![GUI](./doc/GUI.png)
-
-##Emitting URL of the web page from your Raspberry Pi
-
-Include the following in your Java script:
-```
-require('./beacon.js')
-```
-![Eddystone](./doc/Eddystone.png)
-
-The 'beacon.js' script is [here](./beacon.js).
-
-##OpenALPR training for Japanese car licence plates
-
-In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
-https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
-
-To get most out of OpenALPR, you must train it. Take pictures of Japanese license plates, then use the following utilites to train it:
-- https://github.com/openalpr/train-ocr
-- https://github.com/openalpr/train-detector
-
-##Issues
-
-- My USB webcam stops working just after I have started Cassandra. I disabled wlan0, but it does not solve the problem.
-- My powered USB 3.0 hub does not work with Raspberry Pi. See this page: https://www.raspberrypi.org/documentation/hardware/raspberrypi/usb/README.md
-
-So I have bought a camera module for RPi:
-- https://www.raspberrypi.org/products/camera-module/
-- https://www.raspberrypi.org/documentation/usage/camera/
-
-Don't forget to load the following kernel module for V4L2: 
-```
-$ sudo modprobe bcm2835-v4l2
-```
 
 ##Do I need ??? Time for reality check!
 
