@@ -148,7 +148,3 @@ No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandr
 
 ####Do I need an IOT framework/platform?
 No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform.
-
-##[Trabant](https://en.wikipedia.org/wiki/Trabant)
-
-![trabi](./doc/trabi.png)
