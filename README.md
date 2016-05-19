@@ -2,6 +2,10 @@
 
 This is my second IoT project.
 
+What will happen if you don't remember where you parked your car in a multi-story parking garage?
+
+In that case, this small IOT system provides a search engine to find your car.
+
 ![travi-alpr](./doc/PI-ALPR.png)
 
 ##Examples of multistory parking garages in Japan
