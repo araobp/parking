@@ -94,12 +94,15 @@ app.post(  ...
 
 AngularJS-based page: [index.html](./www/index.html)
 
+![GUI](./doc/GUI.png)
+
 ##Emitting URL of the web page from your Raspberry Pi
 
 Include the following in your Java script:
 ```
 require('./beacon.js')
 ```
+![Eddystone](./doc/Eddystone.png)
 
 The 'beacon.js' script is [here](./beacon.js).
 
