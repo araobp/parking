@@ -5,8 +5,7 @@ This is my second IoT project.
 ![travi](./doc/travi.png)
 ![travi-alpr](./doc/PI-ALPR.png)
 
-
-##Example of multistory parking garages in Japan
+##Examples of multistory parking garages in Japan
 
 - Northport Mall, Yokohama
 https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656
