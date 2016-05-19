@@ -1,6 +1,6 @@
 #Where is my car?
 
-This is my second IoT project.
+This is my second IoT project as my hobby.
 
 What will happen if you don't remember where you parked your car in a multi-story parking garage?
 
