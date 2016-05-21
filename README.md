@@ -142,6 +142,12 @@ Don't forget to load the following kernel module for V4L2:
 $ sudo modprobe bcm2835-v4l2
 ```
 
+##Wish list
+
+#### Docker-based software management for IoT gateways (i.e., Raspberry Pi 3)
+
+AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I don't use Chef, Puppet and Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
+
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
