@@ -99,7 +99,9 @@ app.post(  ...
 
 ##Cassandra setup
 
-[Cassandra setup](./doc/cassandra.md)
+[Cassandra installation onto Raspberry Pi](./doc/cassandra.md)
+
+You can run Cassandra on Raspberry Pi. But it might not be a good idea, since Cassandra consumes a lot of memory.
 
 ##Web page for searching your car
 
