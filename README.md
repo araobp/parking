@@ -16,6 +16,8 @@ In that case, this small IOT system provides a search engine to find your car.
 
 ##Architecture
 
+![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
+
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
 ##Software components used in this project
