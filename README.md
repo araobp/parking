@@ -20,6 +20,8 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 ####Goal
 
+Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
+
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
 
 ####Minimum setup
