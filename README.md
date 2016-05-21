@@ -146,7 +146,9 @@ $ sudo modprobe bcm2835-v4l2
 
 #### Docker-based software management for IoT gateways (i.e., Raspberry Pi 3)
 
-AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I don't use Chef, Puppet and Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
+AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I use neither Chef, Puppet nor Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
+
+I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
 ##Do I need ??? Time for reality check!
 
