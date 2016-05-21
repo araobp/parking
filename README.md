@@ -2,7 +2,7 @@
 
 This is my second IoT (Internet of Things) project as my hobby.
 
-##The IoT system I develop
+##The IoT toy I develop
 
 ![travi-alpr](./doc/PI-ALPR.png)
 
@@ -14,7 +14,7 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 - [Sogo, Kashiwa](https://www.google.co.jp/maps/@35.8644843,139.9731393,3a,75y,144.06h,112.16t/data=!3m6!1e1!3m4!1sHc9UH1NphEztWjDAM0G-Bg!2e0!7i13312!8i6656)
 - [AEON mall, Makuhari](https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656)
 
-OpenALPR is a very interesting open source software for this problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
+[OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
 ##Architecture
 
