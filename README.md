@@ -1,18 +1,20 @@
 #Where is my car?
 
-This is my second IoT project as my hobby.
+This is my second IoT (Internet of Things) project as my hobby.
 
-What will happen if you don't remember where you parked your car in a multi-story parking garage?
-
-In that case, this small IOT system provides a search engine to find your car.
+##The IoT system I develop
 
 ![travi-alpr](./doc/PI-ALPR.png)
 
-##Examples of multistory parking garages in Japan
+##Background and motivation
+
+I go shopping at these malls on weekends. The problem is that sometimes I do not remember where I parked my car...
 
 - [Northport Mall, Yokohama](https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656)
 - [Sogo, Kashiwa](https://www.google.co.jp/maps/@35.8644843,139.9731393,3a,75y,144.06h,112.16t/data=!3m6!1e1!3m4!1sHc9UH1NphEztWjDAM0G-Bg!2e0!7i13312!8i6656)
 - [AEON mall, Makuhari](https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656)
+
+OpenALPR is a very interesting open source software for this problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
 ##Architecture
 
