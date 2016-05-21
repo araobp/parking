@@ -18,7 +18,13 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 ##Architecture
 
+####Goal
+
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
+
+####Minimum setup
+
+Everything runs on my Raspberry Pi 3 except for the device management.
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
@@ -137,13 +143,13 @@ $ sudo modprobe bcm2835-v4l2
 ####Do I need MQTT?
 No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being. 
 
-Note that MQTT server can be SPOF.
+I just use MQTT for IoT management, since AWS provides MQTT-based device management features.
 
 ####Do I need MongoDB?
-No, I don't. I prefer Cassandra over MongoDB.
+No, I don't. I prefer Cassandra over MongoDB. Cassandra is goot at write-intensive operations and scales out horizontally, thus suitable for this system.
 
 ####Do I need AWS DynamoDB and Lambda?
 No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandra" is much simplar and cheaper than those of AWS. I can even create a cluster of Cassandra with multiple Raspberry Pi 3. In near future, I will try that.
 
 ####Do I need an IOT framework/platform?
-No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform.
+No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform -- maybe, it depends on your requirements. 
