@@ -25,7 +25,7 @@ Why is beacon(Eddystone) required for this system? Get rid of an expensive speci
 
 ####Thing management
 
-[Thing management](./aws/README.md)
+I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
 ####Minimum setup
 
