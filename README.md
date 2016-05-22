@@ -21,11 +21,15 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 The figure below is the goal of this project.
 
-Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
-
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
 
-####Thing management
+Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
+
+Why is Cassandra used for storing data? Cassandra is suitable for this use case, because Cassandra is good at storing time-series data (TSD) with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
+
+For the time being, I use Cassandra as a data store. I may try DynamoDB(AWS) in combination with Lamda(AWS) as well.
+
+####Thing management via AWS IoT
 
 I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
