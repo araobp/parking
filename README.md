@@ -5,10 +5,8 @@ This is my second IoT (Internet of Things) project as my hobby.
 ##The IoT toy I develop
 
 ![pi-alpr](./doc/PI-ALPR.png)
-
-![pi-alpr](./doc/PI-ALPR2.png)
-
-![pi-alpr](./doc/PI-ALPR3.png)
+![pi-alpr2](./doc/PI-ALPR2.png)
+![pi-alpr3](./doc/PI-ALPR3.png)
 
 ##Background and motivation
 
