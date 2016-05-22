@@ -116,6 +116,8 @@ You can run Cassandra on Raspberry Pi. But it might not be a good idea, since Ca
 
 ##Web page for searching your car
 
+This is a Kiosk-like GUI I have developed. Smart phones receives URL from beacons installed in the mall (e.g., in front of elevators), then open up this web page automatically.
+
 AngularJS-based page: [index.html](./www/index.html)
 
 ![GUI](./doc/GUI.png)
