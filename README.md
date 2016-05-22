@@ -1,25 +1,33 @@
 #Where is my car?
 
-This is my second IoT project.
+This is my second IoT (Internet of Things) project as my hobby.
 
-What will happen if you don't remember where you parked your car in a multi-story parking garage?
+##The IoT toy I develop
+![pi-alpr2](./doc/PI-ALPR2.png)
 
-In that case, this small IOT system provides a search engine to find your car.
+##Background and motivation
 
-![travi-alpr](./doc/PI-ALPR.png)
+I go shopping at these malls on weekends. The problem is that sometimes I do not remember where I parked my car...
 
-##Examples of multistory parking garages in Japan
+- [Northport Mall, Yokohama](https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656)
+- [Sogo, Kashiwa](https://www.google.co.jp/maps/@35.8644843,139.9731393,3a,75y,144.06h,112.16t/data=!3m6!1e1!3m4!1sHc9UH1NphEztWjDAM0G-Bg!2e0!7i13312!8i6656)
+- [AEON mall, Makuhari](https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656)
 
-- Northport Mall, Yokohama
-https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656
-
-- Sogo, Kashiwa
-https://www.google.co.jp/maps/@35.8644843,139.9731393,3a,75y,144.06h,112.16t/data=!3m6!1e1!3m4!1sHc9UH1NphEztWjDAM0G-Bg!2e0!7i13312!8i6656
-
-- AEON mall, Makuhari
-https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656
+[OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
 ##Architecture
+
+####Goal
+
+Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
+
+![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
+
+####Minimum setup
+
+Everything runs on my Raspberry Pi 3 except for the device management.
+
+![pi-alpr](./doc/PI-ALPR.png)
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
@@ -92,7 +100,9 @@ app.post(  ...
 
 ##Cassandra setup
 
-[Cassandra setup](./doc/cassandra.md)
+[Cassandra installation onto Raspberry Pi](./doc/cassandra.md)
+
+You can run Cassandra on Raspberry Pi. But it might not be a good idea, since Cassandra consumes a lot of memory.
 
 ##Web page for searching your car
 
@@ -132,23 +142,28 @@ Don't forget to load the following kernel module for V4L2:
 ```
 $ sudo modprobe bcm2835-v4l2
 ```
+![pi-alpr3](./doc/PI-ALPR3.png)
+
+##Wish list
+
+#### Docker-based software management for IoT gateways (i.e., Raspberry Pi 3)
+
+AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I use neither Chef, Puppet nor Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
+
+I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
 No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being. 
 
-Note that MQTT server can be SPOF.
+I just use MQTT for IoT management, since AWS provides MQTT-based device management features.
 
 ####Do I need MongoDB?
-No, I don't. I prefer Cassandra over MongoDB.
+No, I don't. I prefer Cassandra over MongoDB. Cassandra is goot at write-intensive operations and scales out horizontally, thus suitable for this system.
 
 ####Do I need AWS DynamoDB and Lambda?
 No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandra" is much simplar and cheaper than those of AWS. I can even create a cluster of Cassandra with multiple Raspberry Pi 3. In near future, I will try that.
 
 ####Do I need an IOT framework/platform?
-No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform.
-
-##[Trabant](https://en.wikipedia.org/wiki/Trabant)
-
-![trabi](./doc/trabi.png)
+No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform -- maybe, it depends on your requirements. 
