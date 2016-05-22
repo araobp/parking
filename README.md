@@ -164,6 +164,18 @@ AWS Shadow is OK, but AWS does not support software life cycle management (such 
 
 I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
+##What I have learned so far from this project
+
+####System integration processes for IoT
+
+Very critical:
+
+- Security (incl. authentication/authorization)
+- System performance guarantee and SLA
+- Remote device management (incl. software update and certificate installation)
+- Stable power suply for the things
+- Stable network connectivity for the things
+
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
