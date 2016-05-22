@@ -2,7 +2,7 @@
 
 This is my second IoT (Internet of Things) project as my hobby.
 
-##The IoT toy I develop
+##The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
 ##Background and motivation
