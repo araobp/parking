@@ -3,10 +3,7 @@
 This is my second IoT (Internet of Things) project as my hobby.
 
 ##The IoT toy I develop
-
-![pi-alpr](./doc/PI-ALPR.png)
 ![pi-alpr2](./doc/PI-ALPR2.png)
-![pi-alpr3](./doc/PI-ALPR3.png)
 
 ##Background and motivation
 
@@ -29,6 +26,8 @@ Why is beacon(Eddystone) required for this system? Get rid of an expensive speci
 ####Minimum setup
 
 Everything runs on my Raspberry Pi 3 except for the device management.
+
+![pi-alpr](./doc/PI-ALPR.png)
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
@@ -143,6 +142,7 @@ Don't forget to load the following kernel module for V4L2:
 ```
 $ sudo modprobe bcm2835-v4l2
 ```
+![pi-alpr3](./doc/PI-ALPR3.png)
 
 ##Wish list
 
