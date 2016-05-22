@@ -176,6 +176,11 @@ Very critical:
 - Stable power suply for the things
 - Stable network connectivity for the things
 
+Edge computing:
+
+- Stream processing at IoT gateways
+
+
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
