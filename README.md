@@ -180,7 +180,6 @@ Edge computing:
 
 - Stream processing at IoT gateways
 
-
 ##Do I need ??? Time for reality check!
 
 ####Do I need MQTT?
