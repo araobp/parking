@@ -2,7 +2,7 @@
 
 This is my second IoT (Internet of Things) project as my hobby.
 
-##The IoT toy I develop
+##The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
 ##Background and motivation
@@ -19,11 +19,17 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 ####Goal
 
-Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
+The figure below is the goal of this project.
 
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
 
-####Thing management
+Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
+
+Why is Cassandra used for storing data? Cassandra is suitable for this use case, because Cassandra is good at storing time-series data (TSD) with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
+
+For the time being, I use Cassandra as a data store. I may try DynamoDB(AWS) in combination with Lamda(AWS) as well.
+
+####Thing management via AWS IoT
 
 I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
@@ -110,6 +116,8 @@ You can run Cassandra on Raspberry Pi. But it might not be a good idea, since Ca
 
 ##Web page for searching your car
 
+This is a Kiosk-like GUI I have developed. Smart phones receives URL from beacons installed in the mall (e.g., in front of elevators), then open up this web page automatically.
+
 AngularJS-based page: [index.html](./www/index.html)
 
 ![GUI](./doc/GUI.png)
@@ -155,6 +163,22 @@ $ sudo modprobe bcm2835-v4l2
 AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I use neither Chef, Puppet nor Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
 
 I should also check out [Google Brillo](https://developers.google.com/brillo/).
+
+##What I have learned so far from this project
+
+####System integration processes for IoT
+
+Very critical:
+
+- Security (incl. authentication/authorization)
+- System performance guarantee and SLA
+- Remote device management (incl. software update and certificate installation)
+- Stable power suply for the things
+- Stable network connectivity for the things
+
+Edge computing:
+
+- Stream processing at IoT gateways
 
 ##Do I need ??? Time for reality check!
 
