@@ -27,6 +27,23 @@ function processTest(args) {
       persistentSubscribe: true
    });
 
+   thingShadows.get(args.thingName);
+
+   thingShadows
+      .on('status', function(thingName, stat, clientToken, stateObject) {
+         var delta = stateObject.state.delta;
+         if (typeof delta == 'undefined') {
+           console.log('no delta received');
+         } else {
+           console.log(delta.site_id);
+         thingShadows.update(thingName, {
+            state: {
+               reported: stateObject.state
+            }
+         });
+         }
+      });
+
    thingShadows
       .on('error', function(error) {
          console.log('error', error);
@@ -34,8 +51,8 @@ function processTest(args) {
 
    thingShadows
       .on('delta', function(thingName, stateObject) {
-         console.log('received delta on ' + thingName + ': ' +
-            JSON.stringify(stateObject));
+         //console.log('received delta on ' + thingName + ': ' +
+         //   JSON.stringify(stateObject));
          thingShadows.update(thingName, {
             state: {
                reported: stateObject.state
