@@ -51,8 +51,8 @@ function processTest(args) {
 
    thingShadows
       .on('delta', function(thingName, stateObject) {
-         //console.log('received delta on ' + thingName + ': ' +
-         //   JSON.stringify(stateObject));
+         console.log('received delta on ' + thingName + ': ' +
+            JSON.stringify(stateObject));
          thingShadows.update(thingName, {
             state: {
                reported: stateObject.state
