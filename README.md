@@ -162,6 +162,8 @@ $ sudo modprobe bcm2835-v4l2
 
 AWS Shadow is OK, but AWS does not support software life cycle management (such as software upgrade) for IoT gateways. I use neither Chef, Puppet nor Ansible, since these tools make things complicated. I want something like [Resin.io](https://resin.io/) that is based on Docker.
 
+AWS recommends us to use Shadow and S3 for OTA: https://forums.aws.amazon.com/thread.jspa?messageID=706302
+
 I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
 ##What I have learned so far from this project
