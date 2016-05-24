@@ -184,6 +184,9 @@ Edge computing:
 
 ##Do I need ??? Time for reality check!
 
+####Is AWS Shadow useful?
+I don't know. I also consider using [the data base](https://github.com/araobp/tega) that I developed for IoT gateway management.
+
 ####Do I need MQTT?
 No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being. 
 
