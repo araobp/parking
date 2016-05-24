@@ -4,7 +4,7 @@ Cassandra have been running on my Raspberry Pi 3.
 
 ###Java8 installation
 
-    Download Java8 from https://java.com/en/download/
+    Java8 has already been installed on Raspbian.
     Set JAVA_HOME and PATH environment variables.
 
 ###Cassandra installation

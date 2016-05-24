@@ -1,6 +1,8 @@
-const thingShadow = require('../../aws-iot-device-sdk-js/').thingShadow
-const isUndefined = require('../../aws-iot-device-sdk-js/common/lib/is-undefined')
-const cmdLineProcess = require('../../aws-iot-device-sdk-js/examples/lib/cmdline')
+var thingShadow = require('../../aws-iot-device-sdk-js/').thingShadow;
+var isUndefined = require('../../aws-iot-device-sdk-js/common/lib/is-undefined');
+var cmdLineProcess = require('../../aws-iot-device-sdk-js/examples/lib/cmdline');
+
+var alprd = require('./alprd.js');
 
 function processTest(args) {
 
@@ -32,16 +34,21 @@ function processTest(args) {
    thingShadows
       .on('status', function(thingName, stat, clientToken, stateObject) {
          var delta = stateObject.state.delta;
+         var site_id;
          if (typeof delta == 'undefined') {
-           console.log('no delta received');
+           console.log('status w/o delta');
+           site_id = stateObject.state.reported.site_id;
          } else {
-           console.log(delta.site_id);
-         thingShadows.update(thingName, {
-            state: {
-               reported: stateObject.state
-            }
-         });
+           site_id = delta.site_id;
+           console.log('received delta: ' + site_id);
+           thingShadows.update(thingName, {
+              state: {
+                 reported: stateObject.state
+              }
+           });
          }
+         alprd.launch(site_id);
+         handleDelta(thingShadows);
       });
 
    thingShadows
@@ -49,6 +56,14 @@ function processTest(args) {
          console.log('error', error);
       });
 
+
+   thingShadows
+      .on('timeout', function(thingName, clientToken) {
+         console.warn('timeout: ' + thingName + ', clientToken=' + clientToken);
+      });
+}
+
+function handleDelta(thingShadows) {
    thingShadows
       .on('delta', function(thingName, stateObject) {
          console.log('received delta on ' + thingName + ': ' +
@@ -61,11 +76,8 @@ function processTest(args) {
          // Device config 
          var site_id = stateObject.state.site_id;
          console.log(site_id);
-      });
-
-   thingShadows
-      .on('timeout', function(thingName, clientToken) {
-         console.warn('timeout: ' + thingName + ', clientToken=' + clientToken);
+         alprd.kill();
+         alprd.launch(site_id);
       });
 }
 
@@ -75,3 +87,5 @@ if (require.main === module) {
    cmdLineProcess('connect to the AWS IoT service and perform thing shadow echo',
       process.argv.slice(2), processTest, ' ', true);
 }
+
+
