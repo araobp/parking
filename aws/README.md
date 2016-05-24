@@ -20,5 +20,5 @@ received delta on alpr1: {"timestamp":1463934664,"state":{"site_id":"6th"},"meta
 
 Finally, I have written a code that works as a AWS Shadow client:
 ```
-$ sudo -E node agent.js
+$ ./agent.sh
 ```
