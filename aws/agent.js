@@ -29,27 +29,8 @@ function processTest(args) {
       persistentSubscribe: true
    });
 
-   thingShadows.get(args.thingName);
-
-   thingShadows
-      .on('status', function(thingName, stat, clientToken, stateObject) {
-         var delta = stateObject.state.delta;
-         var site_id;
-         if (typeof delta == 'undefined') {
-           console.log('status w/o delta');
-           site_id = stateObject.state.reported.site_id;
-         } else {
-           site_id = delta.site_id;
-           console.log('received delta: ' + site_id);
-           thingShadows.update(thingName, {
-              state: {
-                 reported: stateObject.state
-              }
-           });
-         }
-         alprd.launch(site_id);
-         handleDelta(thingShadows);
-      });
+   alprd.launch();
+   console.log('alprd daemon started.');
 
    thingShadows
       .on('error', function(error) {
@@ -61,9 +42,7 @@ function processTest(args) {
       .on('timeout', function(thingName, clientToken) {
          console.warn('timeout: ' + thingName + ', clientToken=' + clientToken);
       });
-}
 
-function handleDelta(thingShadows) {
    thingShadows
       .on('delta', function(thingName, stateObject) {
          console.log('received delta on ' + thingName + ': ' +
@@ -75,12 +54,13 @@ function handleDelta(thingShadows) {
          });
          // Device config 
          var site_id = stateObject.state.site_id;
-         console.log(site_id);
+         console.log('updating site_id: ' + site_id);
          alprd.kill();
-         alprd.launch(site_id);
-      });
-}
+         alprd.restart(site_id);
+         console.log('alprd daemon restarted.');
+   });
 
+}
 module.exports = cmdLineProcess;
 
 if (require.main === module) {
