@@ -1,4 +1,4 @@
-var eddystoneBeacon = require('./../eddystone-beacon/index');
+var eddystoneBeacon = require('eddystone-beacon/index');
 var util = require('./util.js');
 const IFNAME = 'wlan0';
 

@@ -8,6 +8,14 @@ Attributes to be managed by AWS IoT:
 - WiFi client parameters
 - etc
 
+##Installing AWS IoT SDK for JavaScript
+
+```
+$ git clone https://github.com/aws/aws-iot-device-sdk-js.git
+$ cd aws-iot-device-sdk-js
+$ sudo npm -g install
+```
+
 ##Test
 
 I updated the shadow on the AWS management console. The agent script received the update via MQTT/TLS.

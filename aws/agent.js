@@ -1,6 +1,6 @@
-var thingShadow = require('../../aws-iot-device-sdk-js/').thingShadow;
-var isUndefined = require('../../aws-iot-device-sdk-js/common/lib/is-undefined');
-var cmdLineProcess = require('../../aws-iot-device-sdk-js/examples/lib/cmdline');
+var thingShadow = require('aws-iot-device-sdk').thingShadow;
+var isUndefined = require('aws-iot-device-sdk/common/lib/is-undefined');
+var cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline');
 
 var alprd = require('./alprd.js');
 
