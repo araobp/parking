@@ -27,7 +27,7 @@ Why is beacon(Eddystone) required for this system? Get rid of an expensive speci
 
 Why is Cassandra used for storing data? Cassandra is suitable for this use case, because Cassandra is good at storing time-series data (TSD) with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
 
-For the time being, I use Cassandra as a data store. I may try DynamoDB(AWS) in combination with Lamda(AWS) as well.
+For the time being, I use Cassandra as a data store. I will try DynamoDB(AWS) in combination with Lamda(AWS) as well.
 
 ####Thing management via AWS IoT
 
@@ -182,22 +182,3 @@ Very critical:
 Edge computing:
 
 - Stream processing at IoT gateways
-
-##Do I need ??? Time for reality check!
-
-####Is AWS Shadow useful?
-I don't know. I also consider using [the database](https://github.com/araobp/tega) that I developed for IoT gateway management.
-
-####Do I need MQTT?
-No, I don't. alprd/beanstalkd and nodejs-based REST server (app.js) suffice for the time being. 
-
-I just use MQTT for IoT management, since AWS provides MQTT-based device management features.
-
-####Do I need MongoDB?
-No, I don't. I prefer Cassandra over MongoDB. Cassandra is goot at write-intensive operations and scales out horizontally, thus suitable for this system.
-
-####Do I need AWS DynamoDB and Lambda?
-No, I don't. The combination of "beanstalkd - app.js(node.js/express) - Cassandra" is much simplar and cheaper than those of AWS. I can even create a cluster of Cassandra with multiple Raspberry Pi 3. In near future, I will try that.
-
-####Do I need an IOT framework/platform?
-No, I don't. It's a lot easier and faster to develop an IOT system based on MEAN stack with your preferred SQL/NoSQL rather than a heavy-weight framework/platform -- maybe, it depends on your requirements. 
