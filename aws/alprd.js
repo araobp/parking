@@ -8,16 +8,12 @@ const OPENALPR_CONF = '/etc/openalpr/openalpr.conf';
 const ALPRD_CONF_TMP = '/tmp/alprd.conf';
 const OPENALPR_CONF_TMP = '/tmp/openalpr.conf';
 
-const STATE_CONF = './state.conf';
-
 var config = ini.parse(fs.readFileSync(ALPRD_CONF, 'utf-8'));
 fs.createReadStream(OPENALPR_CONF).pipe(fs.createWriteStream(OPENALPR_CONF_TMP));
 
-var state = ini.parse(fs.readFileSync(STATE_CONF, 'utf-8'));
-
 // launches alprd
-exports.launch = function() {
-  config.daemon.site_id = state.site_id;
+exports.launch = function(site_id) {
+  config.daemon.site_id = site_id;
   fs.writeFileSync(ALPRD_CONF_TMP, ini.stringify(config));
   var cmd = 'sudo /usr/bin/alprd -l /tmp/alprd.log --config /tmp';
   exec(cmd, function(err, stdout, stderr) {
@@ -26,7 +22,7 @@ exports.launch = function() {
     }
   });
 }
-// updates alprd.conf and launches alprd
+// restarts alprd
 exports.restart = function(site_id) {
   config.daemon.site_id = site_id;
   fs.writeFileSync(ALPRD_CONF_TMP, ini.stringify(config));
@@ -36,8 +32,6 @@ exports.restart = function(site_id) {
       throw new Error(err);
     }
   });
-  state.site_id = site_id;
-  fs.writeFileSync(STATE_CONF, ini.stringify(state));
 }
 
 // kills all the running alprd daemons

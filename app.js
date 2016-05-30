@@ -4,7 +4,6 @@ var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var db = require('./cassandra.js');
-require('./beacon.js');
 
 /*** You use either Cassandra or MongoDB ***/
 var nosql = config.config.db;

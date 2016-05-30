@@ -124,9 +124,10 @@ AngularJS-based page: [index.html](./www/index.html)
 
 ##Emitting URL of the web page from your Raspberry Pi
 
-Include the following in your Java script:
+Include the following lines in your Java script:
 ```
-require('./beacon.js')
+var beacon = require('eddystone-beacon/index');
+beacon.advertiseUrl(url);
 ```
 ![Eddystone](./doc/Eddystone.png)
 
