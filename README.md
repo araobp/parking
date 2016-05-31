@@ -197,3 +197,9 @@ Very critical:
 Edge computing:
 
 - Stream processing at IoT gateways
+
+####Enterprise integration patterns
+
+Client-server-model-only software engineers do not understand the other enterprise integration patterns.
+
+Especially, when it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
