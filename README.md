@@ -205,3 +205,5 @@ Client-server-model-only software engineers do not understand the other enterpri
 Especially, when it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
 
 You should also understand the differences between parallel computing and concurrency (e.g., Java multi-thread model versus JavaScirpt or Python Tornado/asyncio), if you want to become an IoT software engineer.
+
+If you understand the above, you will see why node.js is gaining popularity in the IoT world.
