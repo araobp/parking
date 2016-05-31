@@ -49,6 +49,7 @@ Everything runs on my Raspberry Pi 3 except for the device management.
 ####The toy
 
 I have made the toy with LEGO and my Raspberry Pi 3:
+
 ![pi-alpr](./doc/PI-ALPR.png)
 
 ##Software components used in this project
