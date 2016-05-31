@@ -182,6 +182,10 @@ I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
 ####System integration processes for IoT
 
+Some people tend to focus on a specific layer only (e.g., app servers and databases only, ignoring IoT devices and network connectivity), but that approach does not work at all in the IoT world, because YOU CANNOT GUARANTEE THE QUALITY OF THE SYSTEM.
+
+THINK OF IOT AS A WHOLE SYSTEM!
+
 Very critical:
 
 - Security (incl. authentication/authorization)
@@ -193,4 +197,3 @@ Very critical:
 Edge computing:
 
 - Stream processing at IoT gateways
-
