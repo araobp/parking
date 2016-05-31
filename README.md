@@ -203,3 +203,5 @@ Edge computing:
 Client-server-model-only software engineers do not understand the other enterprise integration patterns.
 
 Especially, when it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
+
+You should also understand the differences between parallel computing and concurrency (e.g., Java multi-thread model versus JavaScirpt or Python Tornado/asyncio), if you want to become an IoT software engineer.
