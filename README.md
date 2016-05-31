@@ -37,9 +37,14 @@ I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
 Everything runs on my Raspberry Pi 3 except for the device management.
 
-![pi-alpr](./doc/PI-ALPR.png)
-
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
+
+####Using AWS services
+
+![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
+
+####The toy
+![pi-alpr](./doc/PI-ALPR.png)
 
 ##Software components used in this project
 - node.js/express/angular.js with cassandra-driver
