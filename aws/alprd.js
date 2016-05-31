@@ -12,19 +12,9 @@ var config = ini.parse(fs.readFileSync(ALPRD_CONF, 'utf-8'));
 fs.createReadStream(OPENALPR_CONF).pipe(fs.createWriteStream(OPENALPR_CONF_TMP));
 
 // launches alprd
-exports.launch = function(site_id) {
+exports.start = function(site_id, upload_address) {
   config.daemon.site_id = site_id;
-  fs.writeFileSync(ALPRD_CONF_TMP, ini.stringify(config));
-  var cmd = 'sudo /usr/bin/alprd -l /tmp/alprd.log --config /tmp';
-  exec(cmd, function(err, stdout, stderr) {
-    if (err) {
-      throw new Error(err);
-    }
-  });
-}
-// restarts alprd
-exports.restart = function(site_id) {
-  config.daemon.site_id = site_id;
+  config.daemon.upload_address = upload_address;
   fs.writeFileSync(ALPRD_CONF_TMP, ini.stringify(config));
   var cmd = 'sudo /usr/bin/alprd -l /tmp/alprd.log --config /tmp';
   exec(cmd, function(err, stdout, stderr) {
