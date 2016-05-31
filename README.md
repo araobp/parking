@@ -182,8 +182,6 @@ I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
 ####System integration processes for IoT
 
-Some people tend to focus on a specific layer only (e.g., app servers and databases only, ignoring IoT devices and network connectivity), but that approach does not work at all in the IoT world, because YOU CANNOT GUARANTEE THE QUALITY OF THE SYSTEM.
-
 THINK OF IOT AS A WHOLE SYSTEM!
 
 Very critical:
@@ -200,10 +198,4 @@ Edge computing:
 
 ####Enterprise integration patterns
 
-Client-server-model-only software engineers do not understand the other enterprise integration patterns.
-
-Especially, when it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
-
-You should also understand the differences between parallel computing and concurrency (e.g., Java multi-thread model versus JavaScirpt or Python Tornado/asyncio), if you want to become an IoT software engineer.
-
-If you understand the above, you will see why node.js is gaining popularity in the IoT world.
+When it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
