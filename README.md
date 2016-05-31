@@ -183,5 +183,3 @@ Edge computing:
 
 - Stream processing at IoT gateways
 
-##[AWS Summit Tokyo 2016](http://www.awssummit.tokyo/)
-I am going to attend it.
