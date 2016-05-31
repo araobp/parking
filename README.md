@@ -39,11 +39,16 @@ Everything runs on my Raspberry Pi 3 except for the device management.
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
-####Using AWS services
+####Working with AWS services
+
+- Cassandra is replaced with DynamoDB (I need to add TTL feature somewhere).
+- app.js runs on an EC2 instance.
 
 ![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
 
 ####The toy
+
+I have made the toy with LEGO and my Raspberry Pi 3:
 ![pi-alpr](./doc/PI-ALPR.png)
 
 ##Software components used in this project
