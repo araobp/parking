@@ -51,8 +51,6 @@ function loop(client, publisher) {
 
 
 exports.startPublishing = function(publisher) {
-  this.publisher = publisher;
-  console.log(this.publisher);
   client = new fivebeans.client('127.0.0.1', 11300);
   client
     .on('connect', function()
