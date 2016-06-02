@@ -36,12 +36,16 @@ function awsIot(args) {
       persistentSubscribe: true
    });
 
-   alprd.kill();
-   alprd.start(state.site_id, state.upload_address);
-   console.log('alprd daemon started.');
-
    beacon.stop();
    beacon.advertiseUrl(state.url);
+
+   thingShadows
+      .on('connect', function() {
+         alprd.kill();
+         alprd.startPublishing(thingShadows);
+         alprd.start(state.site_id, state.upload_address);
+         console.log('alprd daemon started.');
+      });
 
    thingShadows
       .on('error', function(error) {
