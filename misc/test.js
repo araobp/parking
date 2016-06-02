@@ -20,13 +20,22 @@ client
 
 function loop(client) {
     client.reserve(function(err, jobid, payload) {
-      console.log(jobid);
-      console.log(payload.toJSON());
+      //console.log(jobid);
+      var data = JSON.parse(payload.toString());
+      var result = data.results[0];
+      var plate = result.plate;
+      var confidence = result.confidence;
+      var processing_time_ms = result.processing_time_ms;
+      var site_id = data.site_id;
+      console.log(plate);
+      console.log(confidence);
+      console.log(processing_time_ms);
+      console.log(site_id);
       client.destroy(jobid, function(err) {
         if (err) {
           throw err;
         } else {
-          loop(client);
+          setTimeout(loop(client), 0);
         }
       });
     });
