@@ -32,6 +32,8 @@ function awsIot(args) {
       debug: args.Debug
    });
 
+   console.log('thingName: ' + args.thingName);
+
    thingShadows.register(args.thingName, {
       persistentSubscribe: true
    });
@@ -42,7 +44,7 @@ function awsIot(args) {
    thingShadows
       .on('connect', function() {
          alprd.kill();
-         alprd.startPublishing(thingShadows);
+         alprd.startPublishing(thingShadows, args.thingName);
          alprd.start(state.site_id, state.upload_address);
          console.log('alprd daemon started.');
       });

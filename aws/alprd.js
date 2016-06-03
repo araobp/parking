@@ -3,6 +3,7 @@ var ini = require('ini');
 var exec = require('child_process').exec;
 var ps = require('ps-node');
 var fivebeans = require('fivebeans');
+require('date-utils');
 
 const ALPRD_CONF = '/etc/openalpr/alprd.conf';
 const OPENALPR_CONF = '/etc/openalpr/openalpr.conf';
@@ -14,17 +15,17 @@ const TOPIC = 'alprd';
 var config = ini.parse(fs.readFileSync(ALPRD_CONF, 'utf-8'));
 fs.createReadStream(OPENALPR_CONF).pipe(fs.createWriteStream(OPENALPR_CONF_TMP));
 
-function processClient(client, publisher) {
+function processClient(client, publisher, thingName) {
   client.watch('alprd', function(err, numwatched) {
     if (err) {
       throw err;
     } else {
-      loop(client, publisher);
+      loop(client, publisher, thingName);
     }
   });
 }
 
-function loop(client, publisher) {
+function loop(client, publisher, thingName) {
   client.reserve(function(err, jobid, payload) {
     //console.log(jobid);
     var data = JSON.parse(payload.toString());
@@ -37,26 +38,29 @@ function loop(client, publisher) {
     console.log(confidence);
     console.log(processing_time_ms);
     console.log(site_id);
-    var record = {plate: plate, confidence: confidence, processing_time_ms: processing_time_ms, site_id: site_id};
+    var car_id = thingName + ':' + site_id + ':' + plate;
+    var t = new Date();
+    var timestamp = t.toFormat('YYYYMMDDHH24MISS');
+    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms};
     publisher.publish(TOPIC, JSON.stringify(record));
     client.destroy(jobid, function(err) {
       if (err) {
         throw err;
       } else {
-        setTimeout(loop(client, publisher), 0);
+        setTimeout(loop(client, publisher, thingName), 0);
       }
     });
   });
 }
 
 
-exports.startPublishing = function(publisher) {
+exports.startPublishing = function(publisher, thingName) {
   client = new fivebeans.client('127.0.0.1', 11300);
   client
     .on('connect', function()
     {
       console.log('connected');
-      processClient(client, publisher);
+      processClient(client, publisher, thingName);
         // client can now be used
     })
     .on('error', function(err)
