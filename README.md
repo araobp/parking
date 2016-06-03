@@ -33,16 +33,6 @@ For the time being, I use Cassandra as a data store. I will try DynamoDB(AWS) in
 
 I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
-####Working with DynamoDB
-
-I also use AWS to store car location data onto DynamoDB.
-
-![aws_iot](./doc/aws_iot.png)
-
-![aws_iot_dynamodb](./doc/aws_iot_dynamodb.png)
-
-![dynamodb](./doc/dynamodb.png)
-
 ####Minimum setup
 
 Everything runs on my Raspberry Pi 3 except for the device management.
@@ -55,6 +45,20 @@ Everything runs on my Raspberry Pi 3 except for the device management.
 - app.js runs on an EC2 instance.
 
 ![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
+
+####Screenshots from AWS IoT
+
+This is a list of my things:
+
+![aws_iot](./doc/aws_iot.png)
+
+I created a rule to forward location data from MQTT server to DynamoDB. The topic name is "alprd".
+
+![aws_iot_dynamodb](./doc/aws_iot_dynamodb.png)
+
+Dynamo DB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday index:
+
+![dynamodb](./doc/dynamodb.png)
 
 ####The toy
 
