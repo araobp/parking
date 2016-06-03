@@ -60,7 +60,7 @@ I created a rule to forward location data from MQTT server to DynamoDB. The topi
 
 ![aws_iot_dynamodb](./doc/aws_iot_dynamodb.png)
 
-Dynamo DB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday index:
+DynamoDB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday index:
 
 ![dynamodb](./doc/dynamodb.png)
 
