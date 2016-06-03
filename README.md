@@ -46,11 +46,17 @@ Everything runs on my Raspberry Pi 3 except for the device management.
 
 ![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
 
-Screenshots from AWS IoT
+####Screenshots from AWS IoT
+
+This is a list of my things:
 
 ![aws_iot](./doc/aws_iot.png)
 
+I created a rule to forward location data from MQTT server to DynamoDB. The topic name is "alprd".
+
 ![aws_iot_dynamodb](./doc/aws_iot_dynamodb.png)
+
+Dynamo DB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday index:
 
 ![dynamodb](./doc/dynamodb.png)
 
