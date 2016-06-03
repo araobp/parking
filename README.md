@@ -33,6 +33,16 @@ For the time being, I use Cassandra as a data store. I will try DynamoDB(AWS) in
 
 I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
 
+####Working with DynamoDB
+
+I also use AWS to store car location data onto DynamoDB.
+
+![aws_iot](./doc/aws_iot.png)
+
+![aws_iot_dynamodb](./doc/aws_iot_dynamodb.png)
+
+![dynamodb](./doc/dynamodb.png)
+
 ####Minimum setup
 
 Everything runs on my Raspberry Pi 3 except for the device management.
