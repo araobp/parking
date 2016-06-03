@@ -38,10 +38,10 @@ function loop(client, publisher, thingName) {
     console.log(confidence);
     console.log(processing_time_ms);
     console.log(site_id);
-    var car_id = thingName + ':' + site_id + ':' + plate;
+    var car_id = thingName + ':' + plate;
     var t = new Date();
     var timestamp = t.toFormat('YYYYMMDDHH24MISS');
-    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms};
+    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms, site_id: site_id};
     publisher.publish(TOPIC, JSON.stringify(record));
     client.destroy(jobid, function(err) {
       if (err) {
