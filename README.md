@@ -15,7 +15,7 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
-####The toy
+##The toy
 
 I have made the toy with LEGO and my Raspberry Pi 3:
 
