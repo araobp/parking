@@ -67,9 +67,10 @@ DynamoDB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday
 ##Software components used in this project
 - node.js/express/angular.js with cassandra-driver
 - [OpenALPR](https://github.com/openalpr/openalpr)
-- [beanstalkd](http://kr.github.io/beanstalkd/)
+- [beanstalkd](http://kr.github.io/beanstalkd/) and [fivebeans](https://github.com/ceejbot/fivebeans)
 - [node-eddystone-beacon](https://github.com/don/node-eddystone-beacon)
 - [Cassandra](http://cassandra.apache.org)
+- AWS: IoT (incl. its client SDK), DynamoDB and EC2
 
 ##Building OpenALPR on Raspberry Pi
 
