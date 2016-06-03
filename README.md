@@ -15,6 +15,12 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
+####The toy
+
+I have made the toy with LEGO and my Raspberry Pi 3:
+
+![pi-alpr](./doc/PI-ALPR.png)
+
 ##Architecture
 
 ####Goal
@@ -25,9 +31,7 @@ The figure below is the goal of this project.
 
 Why is beacon(Eddystone) required for this system? Get rid of an expensive special-purpose Kiosk, just use your smart phone that detects beacon, extracts an URL of a car search page from the beacon, and opens up Chrome browser.
 
-Why is Cassandra used for storing data? Cassandra is suitable for this use case, because Cassandra is good at storing time-series data (TSD) with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
-
-For the time being, I use Cassandra as a data store. I will try DynamoDB(AWS) in combination with Lamda(AWS) as well.
+Why is Cassandra or DynamoDB used for storing data? Cassandra/DynamoDB is suitable for this use case, because they are good at storing time-series data with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
 
 ####Thing management via AWS IoT
 
@@ -59,12 +63,6 @@ I created a rule to forward location data from MQTT server to DynamoDB. The topi
 Dynamo DB is cool. I assigned "CarId" as a hash key and "Timestamp" as a seconday index:
 
 ![dynamodb](./doc/dynamodb.png)
-
-####The toy
-
-I have made the toy with LEGO and my Raspberry Pi 3:
-
-![pi-alpr](./doc/PI-ALPR.png)
 
 ##Software components used in this project
 - node.js/express/angular.js with cassandra-driver
