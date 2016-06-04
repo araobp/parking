@@ -156,6 +156,26 @@ The 'beacon.js' script is [here](./beacon.js).
 In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
 https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
 
+```
+$ cd /usr/share/openalpr/runtime_data/postprocess
+
+Open the file "us.patterns" and append "jp              ####" to it.
+
+$ cd /etc/openalpr
+
+Open the file "alprd.conf" and edit it as follows:
+
+  [daemon]
+  
+  ; country determines the training dataset used for recognizing plates.
+  ; Valid values are: us, eu, au, auwide, gb, kr, mx, sg
+  country = us
+- ;pattern = ca
++ pattern = jp 
+
+```
+
+
 To get most out of OpenALPR, you must train it. Take pictures of Japanese license plates, then use the following utilites to train it:
 - https://github.com/openalpr/train-ocr
 - https://github.com/openalpr/train-detector
