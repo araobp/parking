@@ -132,12 +132,6 @@ app.use( bodyParser.json() );
 app.post(  ...
 ```
 
-##Cassandra setup
-
-[Cassandra installation onto Raspberry Pi](./doc/cassandra.md)
-
-You can run Cassandra on Raspberry Pi. But it might not be a good idea, since Cassandra consumes a lot of memory.
-
 ##Web page for searching your car
 
 This is a Kiosk-like GUI I have developed. Smart phones receives URL from beacons installed in the mall (e.g., in front of elevators), then open up this web page automatically.
