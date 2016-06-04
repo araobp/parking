@@ -23,9 +23,7 @@ I have made the toy with LEGO and my Raspberry Pi 3:
 
 ##Architecture
 
-####Goal
-
-The figure below is the goal of this project.
+####Overall architecture
 
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
 
