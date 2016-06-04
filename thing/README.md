@@ -11,7 +11,7 @@ Thing configuration parameters managed by AWS IoT are as follows:
 
 "upload_address" is used for the minimum setup only: app.js runs on Raspberry Pi 3 (not on an AWS EC2 instance). 
 
-##Sensor data
+##Sensor data (time-series data)
 
 The things use a RPi camera module and OpenALPR to capture automotive license plate numbers and recognize the numbers. Those numbers are sent to AWS DynamoDB (or Cassandra or MongoDB depending on the config) via AWS IoT MQTT broker.
 
@@ -42,7 +42,7 @@ Use the following shell script to launch it:
 $ ./agent.sh
 ```
 
-##Testing AWS Shadow
+##Updating AWS Shadow
 
 Update the shadow on the AWS management console. The agent script receives the update(delta) via MQTT/TLS.
 
@@ -67,4 +67,5 @@ Use the following shell script to update the AWS Shadow from your terminal:
 ```
 $ ./shadow.sh
 ```
+Note: the implementation is tentative and parameters are hardcorded in the code.
 
