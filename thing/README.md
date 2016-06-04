@@ -1,11 +1,23 @@
-#Thing managment
+#Thing agent
 
-I use AWS IoT to manage my things remotely.
+##Thing managment
 
-Thing configuration parameters managed by AWS IoT:
-- site_id
-- URL emitted by Eddystone(BLE)
-- upload_address where alprd uploads the results
+The things are managed via AWS IoT Shadow. Open AWS Management Console and modify IoT Shadow that will synchronize with the state on the things. 
+
+Thing configuration parameters managed by AWS IoT are as follows:
+- "site_id"
+- "url" emitted by Eddystone(BLE)
+- "upload_address" where alprd uploads the results 
+
+"upload_address" is used for the minimum setup only: app.js runs on Raspberry Pi 3 (not on an AWS EC2 instance). 
+
+##Sensor data
+
+The things use a RPi camera module and OpenALPR to capture automotive license plate numbers and recognize the numbers. Those numbers are sent to AWS DynamoDB (or Cassandra or MongoDB depending on the config) via AWS IoT MQTT broker.
+
+```
+[camera] -- /dev/video0 --> [alprd] --> [beanstalkd] --> [agent.js] -- MQTT/TLS --> [AWS IoT MQTT broker] -->  [AWS DynamoDB]
+```
 
 ##Installing AWS IoT SDK for JavaScript
 
@@ -23,7 +35,7 @@ Then download the each certificate along with config.json onto each of your thin
 
 ##Shadow client (agent.js)
 
-Finally, I have written a code that works as a AWS Shadow client.
+I have written a code that works as a AWS Shadow client.
 
 Use the following shell script to launch it:
 ```
@@ -32,13 +44,25 @@ $ ./agent.sh
 
 ##Testing AWS Shadow
 
-I updated the shadow on the AWS management console. The agent script received the update via MQTT/TLS.
+Update the shadow on the AWS management console. The agent script receives the update(delta) via MQTT/TLS.
+
 ```
-pi@raspberrypi:~/parking/aws $ ./agent.sh
-received delta on alpr1: {"timestamp":1463934664,"state":{"site_id":"6th"},"metadata":{"site_id":{"timestamp":1463934664}}}
-6th
+pi@raspberrypi:~/parking/thing $ ./agent.sh
+thingName: alpr1
+alprd daemon started.
+connected
+alprd(1171) killed
+alprd(1166) killed
+received delta on alpr1: {"timestamp":1465061173,"state":{"site_id":"11th","url":"https://10.0.0.1"},"metadata":{"site_id":{"timestamp":1465061173},"url":{"timestamp":1465061173}}}
+updating site_id: 11th
+alprd daemon restarted.
+updating url: https://10.0.0.1
+alprd(1322) killed
+alprd(1321) killed
 ```
+
 ##AWS CLI client
+
 Use the following shell script to update the AWS Shadow from your terminal:
 ```
 $ ./shadow.sh

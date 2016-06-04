@@ -9,13 +9,6 @@ var beacon = require('eddystone-beacon/index');
 
 function awsIot(args) {
 
-   /*
-   if (isUndefined(args.thingName)) {
-      console.log('thing name must be specified with --thing-name');
-      process.exit(1);
-   }
-   */
-
    var state = conf.get();
 
    const thingShadows = thingShadow({
@@ -108,5 +101,4 @@ if (require.main === module) {
    cmdLineProcess('connect to the AWS IoT service',
       process.argv.slice(2), awsIot, ' ', true);
 }
-
 
