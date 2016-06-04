@@ -203,6 +203,10 @@ Edge computing:
 
 - Stream processing at IoT gateways
 
+System integration test:
+
+- You cannot automate the test: you need to run cars in front of the camera.
+
 ####Enterprise integration patterns
 
 When it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
