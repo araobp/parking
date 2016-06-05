@@ -19,7 +19,7 @@ This project is to seek the best practice for the use case "ALPR".
                                           
 People            [ ]          [ ]      Customers
                                             :
-User Interface    [ ]          [ ]     Smart phones
+User Interface    [ ]          [ ]  Browser on smart phone
                    |            |           |
 Application       [ ]          [ ]   Car Search portal
                    |            |           |
