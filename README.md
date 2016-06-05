@@ -180,7 +180,7 @@ app.post(  ...
 
 This is a Kiosk-like GUI I have developed with HTML5 and AngularJS. Smart phones receives URL from beacons installed in the mall (e.g., in front of elevators), then open up this web page automatically.
 
-AngularJS-based page: [index.html](./www/index.html)
+AngularJS-based page: [index.html](./portal/www/index.html)
 
 ![GUI](./doc/GUI.png)
 
