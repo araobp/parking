@@ -57,7 +57,9 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 ####Why I work alone
 
-I want to see each layer from a standpoint of an IoT system architect. Working in a small team is a key for success.
+First off, you have to consider how much revenue you can gain from your IoT project. Business model matters more than technology.
+
+I want to see each layer from a standpoint of an IoT system architect. It is obvious that working in a small team with skillful members is a key to success.
 
 ##The toy I develop
 
