@@ -7,6 +7,10 @@ var alprd = require('./alprd.js');
 
 var beacon = require('eddystone-beacon/index');
 
+function advertisedUrl(state) {
+  return state.url + state.garage_id;
+}
+
 function awsIot(args) {
 
    var state = conf.get();
@@ -32,12 +36,12 @@ function awsIot(args) {
    });
 
    beacon.stop();
-   beacon.advertiseUrl(state.url);
+   beacon.advertiseUrl(advertisedUrl(state));
 
    thingShadows
       .on('connect', function() {
          alprd.kill();
-         alprd.startPublishing(thingShadows, args.thingName);
+         alprd.startPublishing(thingShadows, args.thingName, state);
          alprd.start(state.site_id, state.upload_address);
          console.log('alprd daemon started.');
       });
@@ -60,7 +64,7 @@ function awsIot(args) {
          var delta = stateObject.state;
 
          // updates alprd-related config and restarts alprd 
-         if ('site_id' in delta || 'upload_address' in delta) {
+         if ('site_id' in delta || 'upload_address' in delta || 'garage_id' in delta) {
            if ('site_id' in delta) {
              state.site_id = delta.site_id;
              console.log('updating site_id: ' + state.site_id);
@@ -74,13 +78,18 @@ function awsIot(args) {
            console.log('alprd daemon restarted.');
          }
 
-         // updates the url advertised by Eddystone
-         if ('url' in delta) {
-           var url = delta.url;
-           state.url = url;
-           console.log('updating url: ' + url);
+         // updates the url advertised by Eddystone beacon
+         if ('url' in delta || 'garage_id' in delta) {
+           if ('url' in delta) {
+             state.url = delta.url;
+             console.log('updating url: ' + state.url);
+           }
+           if ('garage_id' in delta) {
+             state.garage_id = delta.garage_id;
+             console.log('updating garage_id: ' + state.garage_id);
+           }
            beacon.stop();
-           beacon.advertiseUrl(url);
+           beacon.advertiseUrl(advertisedUrl(state));
          }
 
          // updates the state on state.conf

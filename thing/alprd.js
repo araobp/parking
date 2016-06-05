@@ -15,17 +15,17 @@ const TOPIC = 'alprd';
 var config = ini.parse(fs.readFileSync(ALPRD_CONF, 'utf-8'));
 fs.createReadStream(OPENALPR_CONF).pipe(fs.createWriteStream(OPENALPR_CONF_TMP));
 
-function processClient(client, publisher, thingName) {
+function processClient(client, publisher, thingName, state) {
   client.watch('alprd', function(err, numwatched) {
     if (err) {
       throw err;
     } else {
-      loop(client, publisher, thingName);
+      loop(client, publisher, thingName, state);
     }
   });
 }
 
-function loop(client, publisher, thingName) {
+function loop(client, publisher, thingName, state) {
   client.reserve(function(err, jobid, payload) {
     //console.log(jobid);
     var data = JSON.parse(payload.toString());
@@ -38,29 +38,30 @@ function loop(client, publisher, thingName) {
     console.log(confidence);
     console.log(processing_time_ms);
     console.log(site_id);
-    var car_id = thingName + ':' + plate;
+    var car_id = state.garage_id + ':' + plate;
     var t = new Date();
     var timestamp = t.toFormat('YYYYMMDDHH24MISS');
-    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms, site_id: site_id};
+    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms, thing_name: thingName, site_id: site_id};
     publisher.publish(TOPIC, JSON.stringify(record));
     client.destroy(jobid, function(err) {
       if (err) {
         throw err;
       } else {
-        setTimeout(loop(client, publisher, thingName), 0);
+        setTimeout(loop(client, publisher, thingName, state), 0);
       }
     });
   });
 }
 
 
-exports.startPublishing = function(publisher, thingName) {
+exports.startPublishing = function(publisher, thingName, state) {
+  console.log(state);
   client = new fivebeans.client('127.0.0.1', 11300);
   client
     .on('connect', function()
     {
       console.log('connected');
-      processClient(client, publisher, thingName);
+      processClient(client, publisher, thingName, state);
         // client can now be used
     })
     .on('error', function(err)
