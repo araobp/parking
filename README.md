@@ -39,9 +39,10 @@ Thing             [ ]          [ ]         Cars
 Note: each layer itself involves system integration process of its layer for each use caas!
 
 AWS(IoT/EC2/DynamoDB)         [ ]->[ ]->[ ]->[ ]->[ ]->...
+            (e.g, launching an EC2 instance, opening HTTP port 80 ...)
 
 Appl. on Raspberry Pi 3       [ ]->[ ]->[ ]->[ ]->[ ]->...
-
+            (e.g, building OpenALPR/OpenCV, modifying its config ...)
 ```
 
 ####Why I am interested in the use case
