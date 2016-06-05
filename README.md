@@ -7,6 +7,37 @@ System integration process of Automatic License Plate Recognition (ALPR).
 
 ##Background and motivation
 
+####System integration process of IoT
+
+In the IoT world, there is no common standard process, so you have to develop system integration process for each use case!
+
+This project is to seek the best practice for the use case "ALPR".
+
+```
+               Use case 1   Use case2   Use case3 ...
+                                          ALPR
+                                          
+People            [ ]          [ ]      Customers
+                                            :
+User Interface    [ ]          [ ]     Smart phones
+                   |            |           |
+Application       [ ]          [ ]   Car Search portal
+                   |            |           |
+SaaS/PaaS/IaaS    [ ]          [ ]         AWS
+                   |            |           |
+Network           [ ]          [ ]     The Internet
+                   |            |           |
+IoT gateway       [ ]          [ ]    Raspberry Pi 3
+                   |            |           |
+Connector         [ ]          [ ]        Cable
+                   |            |           |
+Sensor            [ ]          [ ]     Camera module
+                                            :
+Thing             [ ]          [ ]         Cars
+```
+
+####Why I am interested in the use case
+
 I go shopping at these malls on weekends. The problem is that sometimes I do not remember where I parked my car...
 
 - [Northport Mall, Yokohama](https://www.google.co.jp/maps/@35.5507775,139.5792885,3a,75y,2h,101.12t/data=!3m6!1e1!3m4!1sr2XS6qJGnbIkwTT953SWPA!2e0!7i13312!8i6656)
@@ -15,7 +46,7 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
-##The toy
+##The toy I develop
 
 I have made the toy with LEGO and my Raspberry Pi 3:
 
