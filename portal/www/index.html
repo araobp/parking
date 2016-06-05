@@ -17,12 +17,11 @@
 
   <script>
     var appModule = angular.module("app", []);
-
-    appModule.controller("controller", function($scope, $http) {
+    appModule.controller("controller", ['$scope', '$http', '$location', function($scope, $http, $location) {
     var someText = {};
     $scope.search = function(num) {
       console.log(num);
-      $http.get('/search?num=' + num).
+      $http.get($location.absUrl() + 'search?num=' + num).
         success(function(data) {
           console.log(data);
           var message = 'Not Found';
@@ -32,7 +31,7 @@
           $scope.message = message;
         });
       };
-    });
+    }]);
   </script>
   </div>
 </body>

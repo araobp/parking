@@ -19,15 +19,18 @@ switch (nosql) {
     db = require('./dynamodb');
 };
 
-app.use(express.static('www'));
+app.use('/[0-9]+', express.static('www'));
 app.use(express.static('angularjs'));
 
-app.get('/search', function(req, res) {
-  console.log('GET /search')
+app.get('/:garage_id/search', function(req, res) {
+  console.log('GET /search');
   var num = req.query.num;
+  var garage_id = req.params.garage_id;
   //console.log(num);
   var record = 'Not Found';
-  db.find(num, function(record) {
+  var key = garage_id + ':' + num; 
+  console.log('searching ' + key);
+  db.find(key, function(record) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     //console.log(record);
     if (typeof record == 'undefined') {

@@ -24,8 +24,9 @@ exports.find = function(CarId, fn) {
   };
   client.query(params, function(err, result) {
     if (err) throw err;
-    var record = {floor_id: result.Items[0].payload.M.site_id.S};
-    console.log(JSON.stringify(record));
+    var site_id = result.Items[0].payload.M.site_id.S;
+    var record = {floor_id: site_id};
+    console.log('The car(' + CarId + ') is on ' + site_id);
     fn(record);
   });
 }
