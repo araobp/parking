@@ -79,7 +79,7 @@ Why is Cassandra or DynamoDB used for storing data? Cassandra/DynamoDB is suitab
 
 ####Thing management via AWS IoT
 
-I use AWS IoT Shadow to manage my things: [Thing management](./aws/README.md).
+I use AWS IoT Shadow to manage my things: [Thing management](./thing/README.md).
 
 ####Minimum setup
 
