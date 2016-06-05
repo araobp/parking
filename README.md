@@ -23,17 +23,25 @@ User Interface    [ ]          [ ]     Smart phones
                    |            |           |
 Application       [ ]          [ ]   Car Search portal
                    |            |           |
-SaaS/PaaS/IaaS    [ ]          [ ]         AWS
+SaaS/PaaS/IaaS    [ ]          [ ]  AWS(IoT/EC2/DynamoDB)
                    |            |           |
 Network           [ ]          [ ]     The Internet
                    |            |           |
-IoT gateway       [ ]          [ ]    Raspberry Pi 3
+IoT gateway       [ ]          [ ]  Appl. on Raspberry Pi 3
                    |            |           |
 Connector         [ ]          [ ]        Cable
                    |            |           |
 Sensor            [ ]          [ ]     Camera module
                                             :
 Thing             [ ]          [ ]         Cars
+
+
+Note: each layer itself involves system integration process of its layer for each use caas!
+
+AWS(IoT/EC2/DynamoDB)         [ ]->[ ]->[ ]->[ ]->[ ]->...
+
+Appl. on Raspberry Pi 3       [ ]->[ ]->[ ]->[ ]->[ ]->...
+
 ```
 
 ####Why I am interested in the use case
@@ -45,6 +53,10 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 - [AEON mall, Makuhari](https://www.google.co.jp/maps/@35.6573085,140.0245396,3a,75y,154.86h,91.46t/data=!3m6!1e1!3m4!1sQEXUIVr33EV5ebIr5tE0rA!2e0!7i13312!8i6656)
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
+
+####Why I work alone
+
+I want to see each layer from a standpoint of an IoT system architect. Working in a small team is a key for success.
 
 ##The toy I develop
 
