@@ -40,7 +40,8 @@ function loop(client, publisher, thingName, state) {
     console.log(site_id);
     var car_id = state.garage_id + ':' + plate;
     var t = new Date();
-    var timestamp = t.toFormat('YYYYMMDDHH24MISS');
+    //var timestamp = t.toFormat('YYYYMMDDHH24MISS');
+    var timestamp = t.getTime().toString();
     var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms, thing_name: thingName, site_id: site_id};
     publisher.publish(TOPIC, JSON.stringify(record));
     client.destroy(jobid, function(err) {
