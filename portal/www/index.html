@@ -11,6 +11,8 @@
   <button ng-click="search(num)">Search</button>
   <br>
   <p ng-bind="message"></p>
+  <p ng-bind="timestamp"></p>
+  <p ng-bind="confidence"></p>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <!-- <script src="angular.min.js"></script> -->
@@ -22,13 +24,19 @@
     $scope.search = function(num) {
       console.log(num);
       $http.get($location.absUrl() + 'search?num=' + num).
-        success(function(data) {
-          console.log(data);
+        success(function(record) {
+          console.log(record);
           var message = 'Not Found';
-          if (data.floor_id != '') {
-            message = 'Your car is on the ' + data.floor_id + ' floor.';
+          var confidence;
+          var timestamp;
+          if (record.floor_id != '') {
+            message = 'Your car is on the ' + record.floor_id + ' floor,';
+            timestamp = 'parked at ' + new Date(Number(record.timestamp)).toTimeString() +'.';
+            confidence = 'Confidence: ' + record.confidence + '%';
           };
           $scope.message = message;
+          $scope.confidence = confidence;
+          $scope.timestamp = timestamp;
         });
       };
     }]);

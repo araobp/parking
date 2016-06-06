@@ -34,7 +34,7 @@ app.get('/:garage_id/search', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     //console.log(record);
     if (typeof record == 'undefined') {
-      record = { floor_id : '' };
+      record = { floor_id : '', confidence: 0, timestamp: '0' };
     };
     res.write(JSON.stringify(record));
     res.end();
