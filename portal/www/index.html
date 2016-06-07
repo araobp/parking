@@ -1,10 +1,11 @@
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>Car Search</title>
+    <title>Parking Location</title>
     <link rel="stylesheet" type="text/css" href="default.css">
   </head>
   <body>
+  <h1>Parking Location</h1>
   <div ng-controller="controller">
   <p>Enter your car's license plate number:</p>
   <input ng-model="num">
@@ -29,8 +30,8 @@
           var message = 'Not Found';
           var confidence;
           var timestamp;
-          if (record.floor_id != '') {
-            message = 'Your car is on the ' + record.floor_id + ' floor,';
+          if (record != {}) {
+            message = 'Your car is on the ' + record.site_id + ',';
             timestamp = 'parked at ' + new Date(Number(record.timestamp)).toTimeString() +'.';
             confidence = 'Confidence: ' + record.confidence + '%';
           };
