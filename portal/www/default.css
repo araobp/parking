@@ -1,2 +1,24 @@
-body {background-color: #afeeee;}
+body {
+	background-color: #afeeee;
+}
+
+h1 {
+	font-size: 70px;
+	color: black;
+}
+
+p {
+	font-size: 30px;
+	color: black;
+}
+
+input {
+	font-size: 40px;
+	color: green;
+}
+
+button {
+	font-size: 40px;
+	color: black;
+}
 
