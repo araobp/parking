@@ -193,8 +193,6 @@ beacon.advertiseUrl(url);
 ```
 ![Eddystone](./doc/Eddystone.png)
 
-The 'beacon.js' script is [here](./beacon.js).
-
 ##OpenALPR training for Japanese car licence plates (calibration/tuning)
 
 In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
