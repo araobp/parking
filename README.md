@@ -94,6 +94,12 @@ Everything runs on my Raspberry Pi 3 except for the device management.
 
 ![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
 
+####Physical configuration (Internet of Things)
+
+Note that "Internet of Things" is about a network of things, not about a network of micro services: IoT is one of networking technologies.
+
+![InternetOfThings](https://docs.google.com/drawings/d/1cZ3vfNn52rYJ7BJ9UhJnlSxFU-wls6IeM_7cZnppOFg/pub?w=960&h=600)
+
 ####Screenshots from AWS IoT
 
 This is a list of my things:
