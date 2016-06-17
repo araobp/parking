@@ -1,9 +1,9 @@
+require('date-utils');
 var fs = require('fs');
 var ini = require('ini');
 var exec = require('child_process').exec;
 var ps = require('ps-node');
 var fivebeans = require('fivebeans');
-require('date-utils');
 
 const ALPRD_CONF = '/etc/openalpr/alprd.conf';
 const OPENALPR_CONF = '/etc/openalpr/openalpr.conf';
@@ -25,9 +25,11 @@ function processClient(client, publisher, thingName, state) {
   });
 }
 
+// Infinite loop
 function loop(client, publisher, thingName, state) {
+
+  // receives an event from the queue in beanstalkd
   client.reserve(function(err, jobid, payload) {
-    //console.log(jobid);
     var data = JSON.parse(payload.toString());
     var result = data.results[0];
     var plate = result.plate;
@@ -38,16 +40,27 @@ function loop(client, publisher, thingName, state) {
     console.log(confidence);
     console.log(processing_time_ms);
     console.log(site_id);
+
+    // an event to be published to MQTT broker on AWS IoT
     var car_id = state.garage_id + ':' + plate;
     var t = new Date();
-    //var timestamp = t.toFormat('YYYYMMDDHH24MISS');
     var timestamp = t.getTime().toString();
-    var record = {car_id: car_id, timestamp: timestamp, confidence: confidence, processing_time_ms: processing_time_ms, thing_name: thingName, site_id: site_id};
+    var record = {
+      car_id: car_id,
+      timestamp: timestamp,
+      confidence: confidence,
+      processing_time_ms: processing_time_ms,
+      thing_name: thingName,
+      site_id: site_id
+    };
     publisher.publish(TOPIC, JSON.stringify(record));
+
+    // removes the event in the queue
     client.destroy(jobid, function(err) {
       if (err) {
         throw err;
       } else {
+        // starts another reserve recursively
         setTimeout(loop(client, publisher, thingName, state), 0);
       }
     });
@@ -61,17 +74,19 @@ exports.startPublishing = function(publisher, thingName, state) {
   client
     .on('connect', function()
     {
+      // client can now be used
       console.log('connected');
       processClient(client, publisher, thingName, state);
-        // client can now be used
     })
     .on('error', function(err)
     {
-        // connection failure
+      // connection failure
+      throw err;
     })
     .on('close', function()
     {
-        // underlying connection has closed
+      // underlying connection has closed
+      console.log('connection closed');
     })
     .connect();
 }
@@ -99,7 +114,7 @@ exports.kill = function() {
       if (process) {
         ps.kill(process.pid, function(err) {
           if (err) {
-            //
+            throw err;
           } else {
             console.log('alprd(' + process.pid +') killed');
           }
