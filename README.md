@@ -100,6 +100,14 @@ Note that "Internet of Things" is about a network of things, not about a network
 
 ![InternetOfThings](https://docs.google.com/drawings/d/1cZ3vfNn52rYJ7BJ9UhJnlSxFU-wls6IeM_7cZnppOFg/pub?w=960&h=600)
 
+####Sensors
+
+Two types of time-series data is published to MQTT broker on AWS IoT:
+- Licence plate numbers recognized by OpenALPR (alprd) -- topic name "alpr"
+- Temperature -- topic name "temperature"
+
+![PCB](https://docs.google.com/drawings/d/1RWnvtRF_2oyBpaMBb_fe2pwgplGz5MFdtaD25IStJPQ/pub?w=640&h=480)
+
 ####Screenshots from AWS IoT
 
 This is a list of my things:
