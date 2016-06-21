@@ -267,6 +267,8 @@ Use [Apache Spark](http://spark.apache.org/) to analyze the data on AWS DynamoDB
 - the throughput of ALPR processing
 - correlation between the temperature and the number of cars entering into the garage
 
+Reference: https://blogs.aws.amazon.com/bigdata/post/Tx1G4SQRV049UL0/Analyze-Your-Data-on-Amazon-DynamoDB-with-Apache-Spark
+
 ##What I have learned so far from this project
 
 ####System integration processes for IoT
