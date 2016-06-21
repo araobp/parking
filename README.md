@@ -261,6 +261,12 @@ AWS recommends us to use Shadow and S3 for OTA: https://forums.aws.amazon.com/th
 
 I should also check out [Google Brillo](https://developers.google.com/brillo/).
 
+#### Data analysis
+
+Use [Apache Spark](http://spark.apache.org/) to analyze the data on AWS DynamoDB:
+- the throughput of ALPR processing
+- correlation between the temperature and the number of cars entering into the garage
+
 ##What I have learned so far from this project
 
 ####System integration processes for IoT
