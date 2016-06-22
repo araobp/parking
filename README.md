@@ -9,6 +9,7 @@ This project is to examine how much knowledge is required for IoT system enginee
 
 ####System integration process of IoT
 
+[System integration process](./doc/si.md)
 
 ####Why I am interested in the use case
 
