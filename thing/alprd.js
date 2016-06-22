@@ -4,6 +4,8 @@ var ini = require('ini');
 var exec = require('child_process').exec;
 var ps = require('ps-node');
 var fivebeans = require('fivebeans');
+var led = require('./led.js');
+led.init();
 
 const ALPRD_CONF = '/etc/openalpr/alprd.conf';
 const OPENALPR_CONF = '/etc/openalpr/openalpr.conf';
@@ -54,6 +56,7 @@ function loop(client, publisher, thingName, state) {
       site_id: site_id
     };
     publisher.publish(TOPIC, JSON.stringify(record));
+    led.blink();
 
     // removes the event in the queue
     client.destroy(jobid, function(err) {
