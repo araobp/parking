@@ -21,12 +21,6 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
-####Why I work alone
-
-First off, you have to consider how much revenue you can gain from your IoT project. Business model matters more than technology.
-
-I want to see each layer from a standpoint of an IoT system architect. It is obvious that working in a small team with skillful members is a key to success.
-
 ##The toy I develop
 
 I have made the toy with LEGO and my Raspberry Pi 3:
