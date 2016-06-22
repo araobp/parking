@@ -1,10 +1,11 @@
 /*
  * Circuit
  *
- * GPIO 17                GND
+ * GPIO 17 (3.3v)         GND
  *   |                     |
  *   |                     |
  *   +-- LED -- resister --+
+ *               1k ohm
  */
 
 var fs = require('fs');
