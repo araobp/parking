@@ -14,6 +14,8 @@ const OPENALPR_CONF_TMP = '/tmp/openalpr.conf';
 
 const TOPIC = 'alprd';
 
+const CONFIDENCE = 88;  // 88% confidence
+
 var config = ini.parse(fs.readFileSync(ALPRD_CONF, 'utf-8'));
 fs.createReadStream(OPENALPR_CONF).pipe(fs.createWriteStream(OPENALPR_CONF_TMP));
 
@@ -55,8 +57,12 @@ function loop(client, publisher, thingName, state) {
       thing_name: thingName,
       site_id: site_id
     };
-    publisher.publish(TOPIC, JSON.stringify(record));
-    led.blink();
+    if (confidence >= CONFIDENCE) {
+      publisher.publish(TOPIC, JSON.stringify(record));
+      led.blink('blue'); 
+    } else {
+      led.blink('red');
+    }
 
     // removes the event in the queue
     client.destroy(jobid, function(err) {
