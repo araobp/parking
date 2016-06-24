@@ -22,3 +22,9 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 ####Temperature calculation
 ![equation](./equation.png)
+
+##Communicating with MCP3008 via SPI
+
+![mcp3008_2](./mcp3008_2.png)
+
+![mcp3008_3](./mcp3008_3.png)
