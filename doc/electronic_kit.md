@@ -16,4 +16,6 @@ Note: the materials below are written in Japanese.
 
 ## Temperature calculation
 
+![mcp9700_1](./mcp9700_1.png)
+
 ![equation](./equation.png)
