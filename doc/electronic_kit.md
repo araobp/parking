@@ -16,6 +16,11 @@ Note: the materials below are written in Japanese.
 
 ## Temperature calculation
 
+####MCP9700 DC electrical characteristics
 ![mcp9700_1](./mcp9700_1.png)
 
+####MCP3008 digital output code calculation
+![mcp3008_1](./mcp3008_1.png)
+
+####Temperature calculation
 ![equation](./equation.png)
