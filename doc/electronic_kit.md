@@ -13,3 +13,7 @@ Note: the materials below are written in Japanese.
 
 - [Guide](http://store.techshare.jp/html/page101.html)
 - [LED blinking with node.js](http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/)
+
+## Temperature calculation
+
+![equation](./doc/equation.png)
