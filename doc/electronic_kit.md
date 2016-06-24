@@ -16,4 +16,4 @@ Note: the materials below are written in Japanese.
 
 ## Temperature calculation
 
-![equation](./doc/equation.png)
+![equation](./equation.png)
