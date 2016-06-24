@@ -25,6 +25,7 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 ##Communicating with MCP3008 via SPI
 
+Control bit: 1000
 
 ![mcp3008_2](./mcp3008_2.png)
 
