@@ -70,6 +70,10 @@ Two types of time-series data is published to MQTT broker on AWS IoT:
 
 ![PCB](https://docs.google.com/drawings/d/1RWnvtRF_2oyBpaMBb_fe2pwgplGz5MFdtaD25IStJPQ/pub?w=640&h=480)
 
+And the wirling on the solderless breadboard:
+
+![solderless_breadboard](./doc/solderless_breadboard.png)
+
 ####Screenshots from AWS IoT
 
 This is a list of my things:
