@@ -4,6 +4,7 @@ var cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline');
 
 var conf = require('./conf.js');
 var alprd = require('./alprd.js');
+var sensor = require('./sensor.js');
 
 var beacon = require('eddystone-beacon/index');
 
@@ -40,10 +41,17 @@ function awsIot(args) {
 
    thingShadows
       .on('connect', function() {
+
+         // publishes license plate numbers to AWS IoT.
          alprd.kill();
          alprd.startPublishing(thingShadows, args.thingName, state);
          alprd.start(state.site_id, state.upload_address);
          console.log('alprd daemon started.');
+
+         // publishes sensor data (temperature) to AWS IoT.
+         sensor.startPublishing(thingShadows, args.thingName, state);
+         console.log('sensor data reporting started.');
+
       });
 
    thingShadows
