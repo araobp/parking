@@ -174,6 +174,9 @@ Include the following lines in your Java script:
 var beacon = require('eddystone-beacon/index');
 beacon.advertiseUrl(url);
 ```
+
+Note: Eddystone cannot advertise URL longer than 18 bytes. Use the following URL shortner service: https://goo.gl/
+
 ![Eddystone](./doc/Eddystone.png)
 
 ##OpenALPR training for Japanese car licence plates (calibration/tuning)
