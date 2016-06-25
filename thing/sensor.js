@@ -5,8 +5,8 @@ var temperature = require('./temperature.js');
 led.init();
 
 const TOPIC = 'sensor';
-//const INTERVAL = 5 * 60 * 1000;  // every 5 min
-const INTERVAL = 5000;  // every 5 min
+const INTERVAL = 5 * 60 * 1000;  // every 5 min
+//const INTERVAL = 5000;  // every 5 sec 
 
 exports.startPublishing = function(publisher, thingName, state) {
 
