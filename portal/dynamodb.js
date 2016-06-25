@@ -30,6 +30,7 @@ exports.find = function(CarId, fn) {
       }
     }
   };
+  //console.log(params);
   client.query(params, function(err, result) {
     if (err) throw err;
     //console.log(JSON.stringify(result));
@@ -47,8 +48,13 @@ exports.find = function(CarId, fn) {
         record.site_id = item.payload.M.site_id.S;
       }
     });
-    console.log(JSON.stringify(record));
-    console.log('The car(' + CarId + ') is on ' + record.site_id);
-    fn(record);
+    //console.log(JSON.stringify(record));
+    if (record.site_id == undefined) {
+      console.log('The car(' + CarId + ') is not found');
+      fn(undefined);
+    } else { 
+      console.log('The car(' + CarId + ') is on ' + record.site_id);
+      fn(record);
+    }
   });
 }

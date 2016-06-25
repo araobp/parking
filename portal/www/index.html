@@ -27,10 +27,10 @@
       $http.get($location.absUrl() + 'search?num=' + num).
         success(function(record) {
           console.log(record);
-          var message = 'Not Found';
+          var message = 'Your car is not found';
           var confidence;
           var timestamp;
-          if (record != {}) {
+          if (record.confidence != 0) {
             message = 'Your car is on the ' + record.site_id + ',';
             timestamp = 'parked at ' + new Date(Number(record.timestamp)).toTimeString() +'.';
             confidence = 'Confidence: ' + record.confidence + '%';

@@ -32,8 +32,8 @@ app.get('/:garage_id/search', function(req, res) {
   console.log('searching ' + key);
   db.find(key, function(record) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    //console.log(record);
-    if (typeof record == 'undefined') {
+    // console.log(record);
+    if (record == undefined) {
       record = { floor_id : '', confidence: 0, timestamp: '0' };
     };
     res.write(JSON.stringify(record));
