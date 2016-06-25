@@ -9,14 +9,39 @@ Thing configuration parameters managed by AWS IoT are as follows:
 - "url" emitted by Eddystone(BLE)
 - "upload_address" where alprd uploads the results 
 
-"upload_address" is used for the minimum setup only: app.js runs on Raspberry Pi 3 (not on an AWS EC2 instance). 
+```
+{
+  "desired": {
+    "site_id": "9th floor",
+    "url": "http://10.0.0.1/",
+    "upload_address": "http://localhost:80/push",
+    "garage_id": 32
+  },
+  "reported": {
+    "site_id": "9th floor",
+    "url": "http://10.0.0.1/",
+    "upload_address": "http://localhost:80/push",
+    "garage_id": 32
+  }
+  ```
+
+Note: "upload_address" is used for the minimum setup only: app.js runs on Raspberry Pi 3 (not on an AWS EC2 instance). 
 
 ##Sensor data (time-series data)
 
 The things use a RPi camera module and OpenALPR to capture automotive license plate numbers and recognize the numbers. Those numbers are sent to AWS DynamoDB (or Cassandra or MongoDB depending on the config) via AWS IoT MQTT broker.
 
 ```
+                                                                                    topic: alprd
 [camera] -- /dev/video0 --> [alprd] --> [beanstalkd] --> [agent.js] -- MQTT/TLS --> [AWS IoT MQTT broker] -->  [AWS DynamoDB]
+```
+
+The thing also supports the following sensor:
+- Temperature sensor: MCP9700-E/TO with MCP3008 AD converter
+
+```
+                                                          topic: sensor
+[sensor] -- /dev/spidev0.0 --> [agent.js] -- MQTT/TLS --> [AWS IoT MQTT broker] -->  [AWS DynamoDB]
 ```
 
 ##Installing AWS IoT SDK for JavaScript
@@ -67,5 +92,4 @@ Use the following shell script to update the AWS Shadow from your terminal:
 ```
 $ ./shadow.sh
 ```
-Note: the implementation is tentative and parameters are hardcorded in the code.
 
