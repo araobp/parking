@@ -169,13 +169,13 @@ AngularJS-based page: [index.html](./portal/www/index.html)
 
 ##Emitting URL of the web page from your Raspberry Pi
 
+Note: Eddystone cannot advertise URL longer than 18 bytes. Use the following URL shortner service: https://goo.gl/
+
 Include the following lines in your Java script:
 ```
 var beacon = require('eddystone-beacon/index');
 beacon.advertiseUrl(url);
 ```
-
-Note: Eddystone cannot advertise URL longer than 18 bytes. Use the following URL shortner service: https://goo.gl/
 
 ![Eddystone](./doc/Eddystone.png)
 
