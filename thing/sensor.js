@@ -18,7 +18,7 @@ exports.startPublishing = function(publisher, thingName, state) {
       var record = {
         timestamp: timestamp,
         thing_name: thingName,
-        site_id: state.site_id,
+        site_id: site_id,
         temperature: temp
       };
       publisher.publish(TOPIC, JSON.stringify(record));
