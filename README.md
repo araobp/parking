@@ -165,7 +165,7 @@ This is a Kiosk-like GUI I have developed with HTML5 and AngularJS. Smart phones
 
 AngularJS-based page: [index.html](./portal/www/index.html)
 
-You enter your car's licence plate number on the GUI. If the system can find your car on the database and if it parked in the past 24 hours, it shows the location of your car.
+You enter your car's licence plate number on the GUI. If the system can find your car on the database and if it was parked in the past 24 hours, it shows the location of your car.
 
 ![GUI](./doc/GUI.png)
 
