@@ -5,7 +5,8 @@
 The things are managed via AWS IoT Shadow. Open AWS Management Console and modify IoT Shadow that will synchronize with the state on the things. 
 
 Thing configuration parameters managed by AWS IoT are as follows:
-- "site_id"
+- "garage_id" (e.g., "32" as an identifier of multi-story parking garage)
+- "site_id" (e.g., "9th floor")
 - "url" emitted by Eddystone(BLE)
 - "upload_address" where alprd uploads the results 
 
