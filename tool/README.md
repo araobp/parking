@@ -6,7 +6,7 @@ Each thing must have the following attributes:
 
 |attribute |value           |
 |----------|----------------|
-|garage_id |<garage_id>     |
+|garage_id |\<garage_id\>   |
 |model     |raspberry-pi-3-b|
 |type      |alpr            |
 
