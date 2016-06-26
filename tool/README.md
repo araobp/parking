@@ -1,6 +1,6 @@
 ##"update_url" command
 
-This command updates AWS IoT Thing Shadows belonging to a specific garage ID.
+This command updates AWS IoT Thing Shadows (desired state) belonging to a specific garage ID.
 
 Each thing must have the following attributes:
 
