@@ -9,7 +9,7 @@ var sensor = require('./sensor.js');
 var beacon = require('eddystone-beacon/index');
 
 function advertisedUrl(state) {
-  return state.url + state.garage_id;
+  return state.url;
 }
 
 function awsIot(args) {
