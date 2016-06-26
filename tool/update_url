@@ -1,0 +1,54 @@
+#!/usr/bin/node
+
+var AWS = require('aws-sdk');
+var async = require('async');
+
+const ALPR = 'alpr';
+
+var garageId = process.argv[2];
+var url = process.argv[3];
+
+console.log('url: ' + url);
+
+AWS.config.update({region: 'ap-northeast-1'});
+
+var iot = new AWS.Iot();
+var iotdata;
+
+async.waterfall([
+  function(callback) {
+    iot.describeEndpoint({}, function(err, data) {
+      console.log(data.endpointAddress);
+      callback(err, data.endpointAddress);
+    });
+  },
+  function(endpoint, callback) {
+    iot.listThings({}, function(err, data) {
+      //console.log(data.things);
+      callback(err, endpoint, data.things);
+    });
+  },
+  function(endpoint, things, callback) {
+    iotdata = new AWS.IotData({endpoint: endpoint});
+    var payload = JSON.stringify({
+      state: {
+        desired: {
+          url: url
+        }
+      }
+    });
+    things.forEach(function(thing, index, array) {
+      var attributes = thing.attributes;
+      if (attributes.type == ALPR && attributes.garage_id == garageId) {
+        var params = { 
+          thingName: thing.thingName,
+          payload: payload
+        }
+        iotdata.updateThingShadow(params, function(err, data) {
+          if (err) throw err;
+        });
+        console.log(thing);
+      }
+    });
+  }
+]);
