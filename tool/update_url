@@ -2,12 +2,14 @@
 
 var AWS = require('aws-sdk');
 var async = require('async');
-
 const ALPR = 'alpr';
 
-var garageId = process.argv[2];
-var url = process.argv[3];
-
+var program = require('commander');
+program.option('-g, --garage [garage_id]', 'Garage ID')
+       .option('-u, --url [URL]', 'URL')
+       .parse(process.argv);
+var garageId = program.garage;
+var url = program.url;
 console.log('url: ' + url);
 
 AWS.config.update({region: 'ap-northeast-1'});
@@ -18,12 +20,16 @@ var iotdata;
 async.waterfall([
   function(callback) {
     iot.describeEndpoint({}, function(err, data) {
-      console.log(data.endpointAddress);
+      console.log('endpoint: ' + data.endpointAddress);
       callback(err, data.endpointAddress);
     });
   },
   function(endpoint, callback) {
-    iot.listThings({}, function(err, data) {
+    var params = {
+      attributeName: 'garage_id',
+      attributeValue: garageId
+    }
+    iot.listThings(params, function(err, data) {
       //console.log(data.things);
       callback(err, endpoint, data.things);
     });
