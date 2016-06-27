@@ -6,18 +6,27 @@ const ALPR = 'alpr';
 
 var program = require('commander');
 program.option('-g, --garage [garage_id]', 'Garage ID')
-       .option('-u, --url [URL]', 'URL')
+       .option('-u, --url [URL]', 'long URL')
        .parse(process.argv);
 var garageId = program.garage;
-var url = program.url;
-console.log('url: ' + url);
+var longUrl = program.url + garageId;
+console.log('longUrl: ' + longUrl);
+
+var shortener = require('./url_shortener.js');
+var shortUrl = '';
 
 AWS.config.update({region: 'ap-northeast-1'});
-
 var iot = new AWS.Iot();
 var iotdata;
 
 async.waterfall([
+  function(callback) {
+    shortener.shortUrl(longUrl, function(url) {
+      shortUrl = url;
+      console.log('shortUrl: ' + shortUrl);
+      callback();
+    });
+  },
   function(callback) {
     iot.describeEndpoint({}, function(err, data) {
       console.log('endpoint: ' + data.endpointAddress);
@@ -39,7 +48,7 @@ async.waterfall([
     var payload = JSON.stringify({
       state: {
         desired: {
-          url: url
+          url: shortUrl
         }
       }
     });
