@@ -14,10 +14,10 @@ Each thing must have the following attributes:
 
 Usage:
 ```
-./update_url -g <garage_id> -u <shortened_url>
+./update_url -g <garage_id> -u <url>
 ```
 
 Example:
 ```
-./update_url -g 32 -u http://goo.gl/xxxxxx
+./update_url -g 32 -u http://ec2-XXX-XXX-XXX-XXX.ap-northeast-1.compute.amazonaws.com/
 ```
