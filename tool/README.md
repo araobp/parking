@@ -14,7 +14,7 @@ Each thing must have the following attributes:
 
 Usage:
 ```
-./update_url <garage_id> <shortend_url>
+./update_url <garage_id> <shortened_url>
 ```
 
 Example:
