@@ -1,15 +1,9 @@
 #Use case: where is my car?
 
-This project is to examine how much knowledge is required for IoT system engineers to integrate an IoT system.
-
 ##The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
 ##Background and motivation
-
-####System integration process of IoT
-
-[System integration process](./doc/si.md)
 
 ####Why I am interested in the use case
 
