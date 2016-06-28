@@ -29,7 +29,7 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 I made [this code](../thing/temperature.js) to obtain the output from MCP3008 and calcuate the temperature.
 
-####Luminousity calculation
+##Luminousity calculation
 
 ![cds](./cds.png)
 
