@@ -1,6 +1,6 @@
 require('date-utils');
 var led = require('./led.js');
-var temperature = require('./temperature.js');
+var adc = require('./adc.js');
 
 led.init();
 
@@ -12,23 +12,24 @@ exports.startPublishing = function(publisher, thingName, state) {
 
   var site_id = state.site_id;
 
-  function report(temp) {
+  function report(data) {
       var t = new Date();
       var timestamp = t.getTime().toString();
       var record = {
         timestamp: timestamp,
         thing_name: thingName,
         site_id: site_id,
-        temperature: temp
+        temperature: data.temp,
+        luminousity: data.luminous
       };
       publisher.publish(TOPIC, JSON.stringify(record));
       led.blink('blue'); 
-      console.log('temperature: ' + temp);
+      console.log('temperature: ' + data.temp);
+      console.log('luminousity: ' + data.luminous);
   }
 
   setInterval(function() {
-    temperature.get(report);
+    adc.get(report);
   }, INTERVAL);
-
 }
 
