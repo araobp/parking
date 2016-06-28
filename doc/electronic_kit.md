@@ -12,6 +12,8 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 ![mcp9700_2](./mcp9700_2.png)
 
+- [MI5](http://akizukidenshi.com/download/ds/macron/MI5_series_jp.pdf)
+
 ## Temperature calculation
 
 ####MCP9700 DC electrical characteristics
