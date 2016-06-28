@@ -27,8 +27,6 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 ####Temperature calculation
 ![equation](./equation.png)
 
-I made [this code](../thing/temperature.js) to obtain the output from MCP3008 and calcuate the temperature.
-
 ##Luminousity calculation
 
 ![cds](./cds.png)
@@ -42,3 +40,6 @@ Control bit: 1000
 Send [0x01, 0x80, 0x00] from your Raspberry Pi to MCP3008 via SPI. MCP3008 returns 10bit data (value range: 0 - 1023).
 
 ![mcp3008_3](./mcp3008_3.png)
+
+##Code
+I made [this code](../thing/adc.js) to obtain the output from MCP3008(CH0 and CH1) and calcuate the temperature and luminousity.
