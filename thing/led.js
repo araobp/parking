@@ -5,13 +5,13 @@
  *   |                     |
  *   |                     |
  *   +-- LED -- resister --+
- *       blue    510 ohm
+ *       blue    1k ohm
  *               
  * GPIO 6 (3.3v)          GND
  *   |                     |
  *   |                     |
  *   +-- LED -- resister --+
- *       red     510 ohm
+ *       red     1k ohm
  */
 
 var fs = require('fs');
