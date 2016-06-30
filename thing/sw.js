@@ -42,6 +42,16 @@ exports.init = function() {
   fs.writeFileSync('/sys/class/gpio/' + GPIO_IN + '/direction', 'in');
 }
 
+/*
+ * mode
+ *
+ *               STIMULOUS               TOGGLE
+ *
+ * GPIO IN   H ----+   +----     H ----+          +----
+ *                 |   |               |          |
+ *           L     +---+         L     +----------+
+ *                 < 1sec                >= 1sec
+ */
 exports.watch = function(listener) {
   var filename = '/sys/class/gpio/' + GPIO_IN + '/value'; 
   var prev = HIGH;
