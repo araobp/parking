@@ -5,8 +5,8 @@ sw.watch(listener);
 //sw.end();
 
 function listener(mode) {
-  if (mode == sw.STIMULOUS) {
-    console.log('tactile switch pressed: STIMULOUS');
+  if (mode == sw.STIMULUS) {
+    console.log('tactile switch pressed: STIMULUS');
   } else {
     console.log('tactile switch pressed: TOGGLE');
   }

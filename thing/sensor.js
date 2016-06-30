@@ -34,7 +34,7 @@ exports.startPublishing = function(publisher, thingName, state) {
   }, INTERVAL);
 
   function listener(mode) {
-    if (mode == sw.STIMULOUS) {
+    if (mode == sw.STIMULUS) {
       adc.get(report);
     }
   }

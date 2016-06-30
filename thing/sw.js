@@ -23,10 +23,10 @@ const LOW = '0';
 const INTERVAL = 100;  // 100msec
 const THRESHOLD = 10; // INTERVAL + THRESHOLD = 1 sec
 
-const STIMULOUS = 0;
+const STIMULUS = 0;
 const TOGGLE = 1;
 
-exports.STIMULOUS = STIMULOUS;
+exports.STIMULUS = STIMULUS;
 exports.TOGGLE = TOGGLE;
 
 var count = 0;
@@ -45,7 +45,7 @@ exports.init = function() {
 /*
  * mode
  *
- *               STIMULOUS               TOGGLE
+ *               STIMULUS                TOGGLE
  *
  * GPIO IN   H ----+   +----     H ----+          +----
  *                 |   |               |          |
@@ -71,7 +71,7 @@ exports.watch = function(listener) {
         } else if (value == HIGH && prev == LOW) {
           prev = HIGH;
           if (count < THRESHOLD) {
-            mode = STIMULOUS;
+            mode = STIMULUS;
           } else {
             mode = TOGGLE;
           } 
