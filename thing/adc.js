@@ -41,6 +41,12 @@ exports.get = function(fn) {
           //console.log('Resister: Infinity');
         } else {
           // Note: this equation is tentative
+          //
+          // Actual measurement
+          // 0: total darkness
+          // 1: night light
+          // 3: room light
+          //
           l = A - Math.log10(r)
           l = Math.round(l * 10)/10
           //console.log('Resister: ' + r);
