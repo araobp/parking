@@ -1,6 +1,7 @@
 require('date-utils');
 var led = require('./led.js');
 var adc = require('./adc.js');
+var sw = require('./sw.js');
 
 led.init();
 
@@ -31,5 +32,13 @@ exports.startPublishing = function(publisher, thingName, state) {
   setInterval(function() {
     adc.get(report);
   }, INTERVAL);
+
+  function listener(mode) {
+    if (mode == sw.STIMULOUS) {
+      adc.get(report);
+    }
+  }
+
+  sw.watch(listener);
 }
 

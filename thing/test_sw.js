@@ -4,7 +4,11 @@ sw.init();
 sw.watch(listener);
 //sw.end();
 
-function listener() {
-  console.log('tactile switch pressed');
+function listener(mode) {
+  if (mode == sw.STIMULOUS) {
+    console.log('tactile switch pressed: STIMULOUS');
+  } else {
+    console.log('tactile switch pressed: TOGGLE');
+  }
 }
 

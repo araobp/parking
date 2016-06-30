@@ -12,6 +12,8 @@ var txbufCh0 = new Buffer([0x01, 0x80, 0x00]);  // CH0
 var txbufCh1 = new Buffer([0x01, 0x90, 0x00]);  // CH1
 var rxbuf = new Buffer([0x00, 0x00, 0x00])
 
+const A = 7;  // tentative value
+
 // obtains temperature and returns it.
 exports.get = function(fn) {
   async.waterfall([
@@ -32,11 +34,20 @@ exports.get = function(fn) {
         var result = ((buf[1]&3)<<8) + buf[2];
         var volt = result * 3.3 / 1023.0;
         //register
-        var r = (3.3/volt - 1) * 10;  // k ohm
-        //console.log('Resister: ' + r);
+        var r = (3.3/volt - 1) * 10000;  // ohm
+        var l;
+        if (r == Infinity) {
+          l = 0;
+          //console.log('Resister: Infinity');
+        } else {
+          // Note: this equation is tentative
+          l = A - Math.log10(r)
+          l = Math.round(l * 10)/10
+          //console.log('Resister: ' + r);
+        }
         var data = {
           temp: temp,
-          luminous: Math.round(r) 
+          luminous: l 
         };
         fn(data);
       });

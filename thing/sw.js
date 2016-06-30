@@ -21,6 +21,15 @@ const HIGH = '1';
 const LOW = '0';
 
 const INTERVAL = 100;  // 100msec
+const THRESHOLD = 10; // INTERVAL + THRESHOLD = 1 sec
+
+const STIMULOUS = 0;
+const TOGGLE = 1;
+
+exports.STIMULOUS = STIMULOUS;
+exports.TOGGLE = TOGGLE;
+
+var count = 0;
 
 // initializes GPIO
 exports.init = function() {
@@ -39,13 +48,27 @@ exports.watch = function(listener) {
   function loop() {
     var state = fs.readFileSync(filename);
     var value = state.toString().trim();
-    if (value != prev) {
-      if (value == LOW && prev == HIGH) {
-        prev = LOW;
-        listener();
-      } else if (value == HIGH && prev == LOW) {
-        prev = HIGH;
-      } 
+    //console.log(value, prev, count);
+    switch (value) {
+      case prev:
+        if (value == LOW) {
+          count += 1;
+        }
+        break;
+      default:
+        if (value == LOW && prev == HIGH) {
+          prev = LOW;
+        } else if (value == HIGH && prev == LOW) {
+          prev = HIGH;
+          if (count < THRESHOLD) {
+            mode = STIMULOUS;
+          } else {
+            mode = TOGGLE;
+          } 
+          count = 0;
+          listener(mode);
+        }
+        break;
     }
   };
   setInterval(loop, INTERVAL);
