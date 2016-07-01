@@ -1,5 +1,7 @@
 #Use case: where is my car?
 
+Note: This project is dependent on AWS IoT and DynamoDB, but I am considering to migrate to ZooKeeper/Cassandra for some reasons...
+
 ##The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
