@@ -39,6 +39,7 @@ exports.startPublishing = function(publisher, thingName, state) {
     }
   }
 
+  sw.init();
   sw.watch(listener);
 }
 
