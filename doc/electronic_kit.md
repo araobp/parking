@@ -16,6 +16,28 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 ![cds_and_register](./cds_and_resister.png)
 
+- [SG90(Servo motor)](http://akizukidenshi.com/download/ds/towerpro/SG90.pdf)
+
+![sg90](./sg90.png)
+
+I have installed [pi-blaster](https://github.com/sarfata/pi-blaster) to enable PWM on my Raspberry Pi 3.
+
+I modified the constant in "pi-blaster.c" to adjust PWM frequency to 50Hz:
+```
+- #define CYCLE_TIME_US   10000
++ #define CYCLE_TIME_US   20000
+  #define SAMPLE_US               10
+  #define NUM_SAMPLES             (CYCLE_TIME_US/SAMPLE_US)
+  #define NUM_CBS                 (NUM_SAMPLES*2)
+```
+
+Then I tested that the motor rotates its arm from -90 degree to +90 degree:
+```
+$ sudo ./pi-blaster
+$ sudo echo "21=0.025" > /dev/pi-blaster
+$ sudo echo "21=0.125" > /dev/pi-blaster
+```
+
 ## Temperature calculation
 
 ####MCP9700 DC electrical characteristics
