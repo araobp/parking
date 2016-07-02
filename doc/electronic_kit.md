@@ -18,7 +18,7 @@ I bought this kit: https://www.amazon.co.jp/gp/product/B00MRQ5U1Y/ref=oh_aui_det
 
 - [SG90(Servo motor)](http://akizukidenshi.com/download/ds/towerpro/SG90.pdf)
 
-![sg90](./sg90/png)
+![sg90](./sg90.png)
 
 I have installed [pi-blaster](https://github.com/sarfata/pi-blaster) to enable PWM on my Raspberry Pi 3.
 
