@@ -31,9 +31,9 @@ I modified the constant in "pi-blaster.c" to adjust PWM frequency to 50Hz:
   #define NUM_CBS                 (NUM_SAMPLES*2)
 ```
 
-Then I tested that the motor rotates its arm from -90 degree to +90 degree:
+I connected my servo motor (SG90) to GPIO21, 5V and GND, then I tested that the motor rotates its arm from -90 degree to +90 degree:
 ```
-$ sudo ./pi-blaster
+$ sudo ./pi-blaster -g 21
 $ sudo echo "21=0.025" > /dev/pi-blaster
 $ sudo echo "21=0.125" > /dev/pi-blaster
 ```
