@@ -73,7 +73,7 @@ Regarding the technical details, refer to [this page](./doc/electronic_kit.md):
 - Controling the AD converter (MCP3008)
 - Temperature calculation
 
-I finally fixed the circuit and solderd all the parts onto an universal board:
+I finally solderd all the parts onto an universal board:
 
 ![universal_board](./doc/universal_board.png)
 
