@@ -73,6 +73,10 @@ Regarding the technical details, refer to [this page](./doc/electronic_kit.md):
 - Controling the AD converter (MCP3008)
 - Temperature calculation
 
+I finally fixed the circuit and solderd all the parts onto an universal board on Jul 17th, 2017:
+
+![universal_board](./doc/universal_board.png)
+
 ####Screenshots from AWS IoT
 
 This is a list of my things:
