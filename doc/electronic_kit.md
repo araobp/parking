@@ -65,3 +65,20 @@ Send [0x01, 0x80, 0x00] from your Raspberry Pi to MCP3008 via SPI. MCP3008 retur
 
 ##Code
 I made [this code](../thing/adc.js) to obtain the output from MCP3008(CH0 and CH1) and calcuate the temperature and luminousity.
+
+##Wirling
+
+|Pin|Name     |Direction|Part            |
+|---|---------|---------|----------------|
+|9  |GND      |         |                |
+|17 |3.3V     |         |                |
+|19 |SPI0 MOSI|         | AD converter   |
+|21 |SPI0 MISO|         | AD converter   |
+|23 |SPI0 SCLK|         | AD converter   |
+|24 |SPI0 CS0 |         | AD converter   |
+|29 |GPIO5    | out     | LED green      |
+|31 |GPIO6    | out     | LED red        |
+|33 |GPIO13   | out     | piezo buzzer   |
+|35 |GPIO19   | in      | tactile switch |
+
+Note: one analog thermistor and one CdS are connected to the AD converter.
