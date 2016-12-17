@@ -1,4 +1,4 @@
-# Jupyter
+# Installing Jupyter on Rapsberry Pi
 
 ## Installation
 
