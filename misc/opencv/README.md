@@ -17,6 +17,10 @@ Add the following options to cmake:
 
 It took one hour to complete the build processes.
 
+#### Build
+
+[build.sh](./build.sh)
+
 ## Working with Pi Camera
 
 http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
