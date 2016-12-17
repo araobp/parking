@@ -1,6 +1,6 @@
-#OpenCV
+# OpenCV
 
-##Installation
+## Installation on Raspberry Pi 3
 
 Install libv4l-dev before building OpenCV:
 ```
@@ -17,7 +17,7 @@ Add the following options to cmake:
 
 It took one hour to complete the build processes.
 
-##Working with Pi Camera
+## Working with Pi Camera
 
 http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
 
