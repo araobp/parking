@@ -1,11 +1,11 @@
-#Use case: where is my car?
+# Use case: where is my car?
 
 ##The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
-##Background and motivation
+## Background and motivation
 
-####Why I am interested in the use case
+#### Why I am interested in the use case
 
 I go shopping at these malls on weekends. The problem is that sometimes I do not remember where I parked my car...
 
@@ -15,15 +15,15 @@ I go shopping at these malls on weekends. The problem is that sometimes I do not
 
 [OpenALPR](https://github.com/openalpr/openalpr) is a very interesting open source software to tackle the problem. I just want to try out the software with my Raspberry Pi 3. That is the motivation.
 
-##The toy I develop
+## The toy I develop
 
 I have made the toy with LEGO and my Raspberry Pi 3:
 
 ![pi-alpr](./doc/PI-ALPR.png)
 
-##Architecture
+## Architecture
 
-####Overall architecture
+#### Overall architecture
 
 ![Goal](https://docs.google.com/drawings/d/18lDoqUTxcNn5_Y5HM9rxr1AuS1mzCkMjpiCr9U_PMrE/pub?w=640&h=480)
 
@@ -31,24 +31,24 @@ Why is beacon(Eddystone) required for this system? Get rid of an expensive speci
 
 Why is Cassandra or DynamoDB used for storing data? Cassandra/DynamoDB is suitable for this use case, because they are good at storing time-series data with write-intensive usage, whereas MongoDB is good at read-intensive usage. 
 
-####Thing management via AWS IoT
+#### Thing management via AWS IoT
 
 I use AWS IoT Shadow to manage my things: [Thing management](./thing/README.md).
 
-####Minimum setup
+#### Minimum setup
 
 Everything runs on my Raspberry Pi 3 except for the device management.
 
 ![WhereIsMyCar](https://docs.google.com/drawings/d/1_GiS80Nem-KqX6v-HBjz98eovvMlLeTybwrgqH_1kmg/pub?w=640&h=480)
 
-####Working with AWS services
+#### Working with AWS services
 
 - Cassandra is replaced with DynamoDB (I need to add TTL feature somewhere).
 - app.js runs on an EC2 instance.
 
 ![WhereIsMyCar2](https://docs.google.com/drawings/d/1UWIcfvBbUBZEOQgkGEzRN_vnKfkEmdFDAgtx6saGaF0/pub?w=640&h=480)
 
-####Physical configuration (Internet of Things)
+#### Physical configuration (Internet of Things)
 
 I use WiFi and 4G (e.g., NTT DoCoMo or SORACOM) to connect my devices to the Internet.
 
@@ -56,7 +56,7 @@ Note that "Internet of Things" is about a network of things, not about a network
 
 ![InternetOfThings](https://docs.google.com/drawings/d/1cZ3vfNn52rYJ7BJ9UhJnlSxFU-wls6IeM_7cZnppOFg/pub?w=960&h=600)
 
-####Sensors
+#### Sensors
 
 Two types of time-series data is published to MQTT broker on AWS IoT:
 - Licence plate numbers recognized by OpenALPR (alprd) -- topic name "alprd"
@@ -77,7 +77,7 @@ I finally solderd all the parts onto an universal board:
 
 ![universal_board](./doc/universal_board.png)
 
-####Screenshots from AWS IoT
+#### Screenshots from AWS IoT
 
 This is a list of my things:
 
@@ -91,7 +91,7 @@ DynamoDB is cool. I assigned "CarId"(garage_id:plate) as a hash key and "Timesta
 
 ![dynamodb](./doc/dynamodb.png)
 
-##Software components used in this project
+## Software components used in this project
 - node.js/express/angular.js with cassandra-driver
 - [OpenALPR](https://github.com/openalpr/openalpr)
 - [beanstalkd](http://kr.github.io/beanstalkd/) and [fivebeans](https://github.com/ceejbot/fivebeans)
@@ -99,7 +99,7 @@ DynamoDB is cool. I assigned "CarId"(garage_id:plate) as a hash key and "Timesta
 - [Cassandra](http://cassandra.apache.org)
 - AWS: IoT (incl. its client SDK), DynamoDB and EC2
 
-##Building OpenALPR on Raspberry Pi
+## Building OpenALPR on Raspberry Pi
 
 First, you have to build OpenCV. Follow the instructions here: http://docs.opencv.org/3.0-last-rst/doc/tutorials/introduction/linux_install/linux_install.html
 
@@ -143,7 +143,7 @@ plate0: 8 results
 
 It took something like 10 seconds to recognize a number, so it is not plactical -- you should run alprd instead.
 
-##node.js/express
+## node.js/express
 
 You must install a middleware 'body-parser' for express POST operations:
 ```
@@ -159,7 +159,7 @@ app.use( bodyParser.json() );
 app.post(  ...
 ```
 
-##Portal (web page) for searching your car
+## Portal (web page) for searching your car
 
 This is a Kiosk-like GUI I have developed with HTML5 and AngularJS. Smart phones receives URL from beacons installed in the mall (e.g., in front of elevators), then open up this web page automatically.
 
@@ -169,7 +169,7 @@ You enter your car's licence plate number on the GUI. If the system can find you
 
 ![GUI](./doc/GUI.png)
 
-##Emitting URL of the web page from your Raspberry Pi
+## Emitting URL of the web page from your Raspberry Pi
 
 Note: Eddystone cannot advertise URL longer than 18 bytes. Use the following URL shortner service: https://goo.gl/
 
@@ -181,7 +181,7 @@ beacon.advertiseUrl(url);
 
 ![Eddystone](./doc/Eddystone.png)
 
-##OpenALPR training for Japanese car licence plates (calibration/tuning)
+## OpenALPR training for Japanese car licence plates (calibration/tuning)
 
 In case of the default setting (country = us),  "2" can be recognized as "Z", and "0" as "O" or "D". For the time being, you may use country = us and use a matching pattern "####(4 digits)" by modifying the following file:
 https://github.com/openalpr/openalpr/blob/master/runtime_data/postprocess/us.patterns
@@ -210,7 +210,7 @@ To get most out of OpenALPR, you must train it. Take pictures of Japanese licens
 - https://github.com/openalpr/train-ocr
 - https://github.com/openalpr/train-detector
 
-##Issues
+## Issues
 
 - My USB webcam stops working just after I have started Cassandra. I disabled wlan0, but it does not solve the problem.
 - My powered USB 3.0 hub does not work with Raspberry Pi. See this page: https://www.raspberrypi.org/documentation/hardware/raspberrypi/usb/README.md
@@ -225,7 +225,7 @@ $ sudo modprobe bcm2835-v4l2
 ```
 ![pi-alpr3](./doc/PI-ALPR3.png)
 
-##Wish list
+## Wish list
 
 #### Docker-based software management for IoT gateways (i.e., Raspberry Pi 3)
 
@@ -243,9 +243,9 @@ Use [Apache Spark](http://spark.apache.org/) to analyze the data on AWS DynamoDB
 
 Reference: https://blogs.aws.amazon.com/bigdata/post/Tx1G4SQRV049UL0/Analyze-Your-Data-on-Amazon-DynamoDB-with-Apache-Spark
 
-##What I have learned so far from this project
+## What I have learned so far from this project
 
-####System integration processes for IoT
+#### System integration processes for IoT
 
 THINK OF IOT AS A WHOLE SYSTEM!
 
@@ -265,6 +265,6 @@ System integration test:
 
 - You cannot automate the test: you need to run cars in front of the camera.
 
-####Enterprise integration patterns
+#### Enterprise integration patterns
 
 When it comes to messaging such as MQTT (e.g., pubsub, event-driven and asynchronous messaging), you had better read this: http://www.enterpriseintegrationpatterns.com/
