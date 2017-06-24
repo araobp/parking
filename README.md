@@ -1,6 +1,6 @@
 # Use case: where is my car?
 
-##The IoT toy I develop is Automatic License Plate Recognition
+## The IoT toy I develop is Automatic License Plate Recognition
 ![pi-alpr2](./doc/PI-ALPR2.png)
 
 ## Background and motivation
