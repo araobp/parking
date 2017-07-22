@@ -1,6 +1,6 @@
-#Eddystone
+# Eddystone
 
-##Installation
+## Installation
 
 ```
 $ git clone https://github.com/don/node-eddystone-beacon
