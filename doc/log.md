@@ -1,4 +1,4 @@
-##/var/log/alprd.log
+## /var/log/alprd.log
 
 ```
 INFO - Running OpenALPR daemon in daemon mode.
