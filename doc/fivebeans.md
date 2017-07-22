@@ -1,20 +1,20 @@
-#Fivebeans
+# Fivebeans
 
-##Installation
+## Installation
 ```
 $ sudo npm -g install fivebeans
 ```
 
-##Getting started
+## Getting started
 http://www.jowanza.com/post/144007055959/getting-started-with-beanstalkd-and-nodejs
 
-##Data flow
+## Data flow
 
 ```
   [alprd] --> [beanstalkd] --> [agent.js]
 ```
 
-##alprd config
+## alprd config
 
 /etc/openalprd/alprd.conf
 ```
